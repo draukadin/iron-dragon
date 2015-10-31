@@ -1,2 +1,1 @@
-# iron-dragon
-My Personal Project to implement the borad game "Iron Dragon" in Java
+#My personal project to implement the Mayfair Iron Dragon board game in java
