@@ -42,4 +42,9 @@ public class CityTests {
     public void getAvailableLoadsTest() {
         Assert.assertEquals(City.KODANKYE.getAvailableLoads(), ImmutableList.of(Load.IVORY));
     }
+
+    @Test
+    public void getTerrainTypeTest() {
+        Assert.assertEquals(City.KOLA.getTerrainType(), TerrainType.MAJOR);
+    }
 }
