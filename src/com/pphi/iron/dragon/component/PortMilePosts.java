@@ -7,18 +7,19 @@ import org.pphi.hexagon.coordinates.HexagonCubeCoordinate;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Map;
+import java.util.Set;
 
 import static com.google.common.collect.Maps.newHashMap;
 
 public class PortMilePosts {
 
-    Map<HexagonCubeCoordinate, PortMilePost> ports;
+    private Map<HexagonCubeCoordinate, PortMilePost> ports;
 
     public PortMilePosts() throws IOException {
-        ports = getCoordinates();
+        ports = getCoords();
     }
 
-    private Map<HexagonCubeCoordinate, PortMilePost> getCoordinates() throws IOException {
+    private Map<HexagonCubeCoordinate, PortMilePost> getCoords() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode node = objectMapper.readTree(Paths.get("GameData/PortMilePosts.json").toFile());
         Map<HexagonCubeCoordinate, PortMilePost> ports = newHashMap();
@@ -31,7 +32,11 @@ public class PortMilePosts {
         return ports;
     }
 
-    public Map<HexagonCubeCoordinate, PortMilePost> getPorts() {
-        return ports;
+    public Set<HexagonCubeCoordinate> getCoordinates() {
+        return ports.keySet();
+    }
+
+    public PortMilePost getMilePost(HexagonCubeCoordinate coordinate) {
+        return ports.get(coordinate);
     }
 }

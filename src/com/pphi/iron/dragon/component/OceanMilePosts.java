@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.Map;
+import java.util.Set;
 
 import static com.google.common.collect.Maps.newHashMap;
 
@@ -32,8 +33,12 @@ public class OceanMilePosts {
         }
     }
 
-    public  Map<HexagonCubeCoordinate, OceanMilePost> getOceanMilePostMilePosts() {
-        return oceanMilePostMilePosts;
+    public Set<HexagonCubeCoordinate> getCoordinates() {
+        return oceanMilePostMilePosts.keySet();
+    }
+
+    public OceanMilePost getMilePost(HexagonCubeCoordinate coordinate) {
+        return oceanMilePostMilePosts.get(coordinate);
     }
 
     private Multimap<Integer, Pair<Integer>> getCoords() throws IOException {
