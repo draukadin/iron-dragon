@@ -36,7 +36,7 @@ public enum City {
     DOBRA_DYN(-20, -13, 33, "Dobra-Dyn", DUL_UL_DUR, "Spice"),
     EABANNET(-31, 10, 21, "Eabannet", EUSARCH, "Gold"),
     EAGLEHAWK(-38, 17, 21, "Eaglehawk", EUSARCH, "Pilgrims"),
-    EASINGWERE(-44, 12, 32, "Easingwere", EUSARCH, "Cloth"),
+    EASINGWERE(-44, 13, 31, "Easingwere", EUSARCH, "Cloth"),
     ELMSWORTH(-39, 12, 27, "Elmsworth", EUSARCH, "Gems"),
     GHASSOUF(1, 8, -9, "Ghassouf", GLYTH_GAMEL, "Fruit"),
     GLYNCLWYN(-8, 10, -2, "Glynclwyn", GLYTH_GAMEL, "Sheep"),
