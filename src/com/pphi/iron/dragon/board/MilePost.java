@@ -3,8 +3,8 @@ package com.pphi.iron.dragon.board;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import com.google.common.base.Optional;
+import com.pphi.iron.dragon.component.BasicMilePost;
 import com.pphi.iron.dragon.component.City;
-import com.pphi.iron.dragon.component.OceanMilePost;
 import com.pphi.iron.dragon.component.PortMilePost;
 import org.pphi.hexagon.coordinates.HexagonCubeCoordinate;
 
@@ -13,13 +13,13 @@ public class MilePost {
     private HexagonCubeCoordinate cubeCoordinate;
     private Optional<PortMilePost> portMilePost;
     private Optional<City> cityMilePost;
-    private Optional<OceanMilePost> oceanMilePost;
+    private Optional<BasicMilePost> milePost;
 
     public MilePost(Builder builder) {
         cubeCoordinate = builder.cubeCoordinate;
         portMilePost = builder.portMilePost;
         cityMilePost = builder.cityMilePost;
-        oceanMilePost = builder.oceanMilePost;
+        milePost = builder.milePost;
     }
 
     public HexagonCubeCoordinate getCubeCoordinate() {
@@ -34,8 +34,8 @@ public class MilePost {
         return cityMilePost;
     }
 
-    public Optional<OceanMilePost> getOceanMilePost() {
-        return oceanMilePost;
+    public Optional<BasicMilePost> getMilePost() {
+        return milePost;
     }
 
     @Override
@@ -71,7 +71,7 @@ public class MilePost {
         private HexagonCubeCoordinate cubeCoordinate;
         private Optional<PortMilePost> portMilePost = Optional.absent();
         private Optional<City> cityMilePost = Optional.absent();
-        private Optional<OceanMilePost> oceanMilePost = Optional.absent();
+        private Optional<BasicMilePost> milePost = Optional.absent();
 
         private Builder(HexagonCubeCoordinate cubeCoordinate) {
             this.cubeCoordinate = cubeCoordinate;
@@ -87,8 +87,8 @@ public class MilePost {
             return this;
         }
 
-        public Builder oceanMilePost(OceanMilePost val) {
-            oceanMilePost = Optional.fromNullable(val);
+        public Builder milePost(BasicMilePost val) {
+            milePost = Optional.fromNullable(val);
             return this;
         }
 
