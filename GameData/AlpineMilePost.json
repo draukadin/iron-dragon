@@ -1,0 +1,41 @@
+[{
+  "z" : 23,
+  "first" : -30,
+  "second" : -30,
+  "country" : "EUSARCH"
+}, {
+  "z" : 22,
+  "first" : -30,
+  "second" : -29,
+  "country" : "EUSARCH"
+}, {
+  "z" : 21,
+  "first" : -29,
+  "second" : -29,
+  "country" : "EUSARCH"
+}, {
+  "z" : 20,
+  "first" : -33,
+  "second" : -33,
+  "country" : "EUSARCH"
+}, {
+  "z" : 20,
+  "first" : -28,
+  "second" : -28,
+  "country" : "EUSARCH"
+}, {
+  "z" : 19,
+  "first" : -28,
+  "second" : -28,
+  "country" : "EUSARCH"
+}, {
+  "z" : 19,
+  "first" : -32,
+  "second" : -32,
+  "country" : "EUSARCH"
+}, {
+  "z" : 18,
+  "first" : -33,
+  "second" : -33,
+  "country" : "EUSARCH"
+}]
