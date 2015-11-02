@@ -4,13 +4,13 @@ import com.google.common.base.Objects;
 import org.pphi.hexagon.coordinates.HexagonCubeCoordinate;
 import org.pphi.hexagon.util.CoordinateUtil;
 
-public class OceanMilePost {
+public class BasicMilePost {
 
     private TerrainType terrainType;
     private HexagonCubeCoordinate cubeCoordinate;
 
-    public OceanMilePost(int x, int z) {
-        terrainType = TerrainType.SEA_POINT;
+    public BasicMilePost(int x, int z, TerrainType terrainType) {
+        this.terrainType = terrainType;
         int y = CoordinateUtil.solveForY(x, z);
         cubeCoordinate = new HexagonCubeCoordinate(x, y, z);
     }
@@ -31,9 +31,11 @@ public class OceanMilePost {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        OceanMilePost oceanMilePost = (OceanMilePost) o;
-        return Objects.equal(terrainType, oceanMilePost.terrainType) &&
-                Objects.equal(cubeCoordinate, oceanMilePost.cubeCoordinate);
+
+        BasicMilePost that = (BasicMilePost) o;
+
+        return Objects.equal(this.terrainType, that.terrainType) &&
+                Objects.equal(this.cubeCoordinate, that.cubeCoordinate);
     }
 
     @Override
