@@ -203,4 +203,114 @@
   "first" : -36,
   "second" : -34,
   "country" : "EUSARCH"
-}]
+}, {
+  "z" : 10,
+  "first" : -4,
+  "second" : -4,
+  "country" : "SILVARRE"
+}, {
+  "z" : 11,
+  "first" : -4,
+  "second" : -4,
+  "country" : "SILVARRE"
+}, {
+  "z" : 12,
+  "first" : -7,
+  "second" : -6,
+  "country" : "SILVARRE"
+}, {
+  "z" : 14,
+  "first" : -10,
+  "second" : -10,
+  "country" : "SILVARRE"
+}, {
+  "z" : 14,
+  "first" : -7,
+  "second" : -5,
+  "country" : "SILVARRE"
+}, {
+  "z" : 14,
+  "first" : -3,
+  "second" : -3,
+  "country" : "SILVARRE"
+}, {
+  "z" : 15,
+  "first" : -11,
+  "second" : -11,
+  "country" : "SILVARRE"
+}, {
+  "z" : 15,
+  "first" : -7,
+  "second" : -4,
+  "country" : "SILVARRE"
+}, {
+  "z" : 17,
+  "first" : -14,
+  "second" : -14,
+  "country" : "SILVARRE"
+}, {
+  "z" : 17,
+  "first" : -11,
+  "second" : -11,
+  "country" : "SILVARRE"
+}, {
+  "z" : 18,
+  "first" : -14,
+  "second" : -13,
+  "country" : "SILVARRE"
+}, {
+  "z" : 19,
+  "first" : -17,
+  "second" : -16,
+  "country" : "SILVARRE"
+}, {
+  "z" : 19,
+  "first" : -12,
+  "second" : -12,
+  "country" : "SILVARRE"
+}, {
+  "z" : 20,
+  "first" : -17,
+  "second" : -17,
+  "country" : "SILVARRE"
+}, {
+  "z" : 20,
+  "first" : -13,
+  "second" : -12,
+  "country" : "SILVARRE"
+}, {
+  "z" : 20,
+  "first" : -9,
+  "second" : -9,
+  "country" : "SILVARRE"
+}, {
+  "z" : 21,
+  "first" : -12,
+  "second" : -12,
+  "country" : "SILVARRE"
+}, {
+  "z" : 22,
+  "first" : -10,
+  "second" : -9,
+  "country" : "SILVARRE"
+}, {
+  "z" : 24,
+  "first" : -13,
+  "second" : -13,
+  "country" : "SILVARRE"
+}, {
+  "z" : 24,
+  "first" : -11,
+  "second" : -11,
+  "country" : "SILVARRE"
+}, {
+  "z" : 25,
+  "first" : -13,
+  "second" : -13,
+  "country" : "SILVARRE"
+}, {
+  "z" : 25,
+  "first" : -10,
+  "second" : -10,
+  "country" : "SILVARRE"
+} ]
