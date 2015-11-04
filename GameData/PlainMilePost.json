@@ -503,4 +503,169 @@
   "first" : -19,
   "second" : -19,
   "country" : "CALCENDEN"
+}, {
+  "z" : -25,
+  "first" : 33,
+  "second" : 33,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -24,
+  "first" : 29,
+  "second" : 29,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -24,
+  "first" : 32,
+  "second" : 34,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -23,
+  "first" : 28,
+  "second" : 28,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -22,
+  "first" : 27,
+  "second" : 27,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -22,
+  "first" : 29,
+  "second" : 31,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -21,
+  "first" : 26,
+  "second" : 28,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -21,
+  "first" : 30,
+  "second" : 31,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -20,
+  "first" : 29,
+  "second" : 31,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -19,
+  "first" : 29,
+  "second" : 30,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -18,
+  "first" : 29,
+  "second" : 29,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -17,
+  "first" : 28,
+  "second" : 29,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -18,
+  "first" : 37,
+  "second" : 37,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -16,
+  "first" : 28,
+  "second" : 31,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -15,
+  "first" : 27,
+  "second" : 27,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -15,
+  "first" : 32,
+  "second" : 32,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -14,
+  "first" : 30,
+  "second" : 34,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -13,
+  "first" : 32,
+  "second" : 35,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -12,
+  "first" : 24,
+  "second" : 25,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -12,
+  "first" : 27,
+  "second" : 27,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -12,
+  "first" : 29,
+  "second" : 30,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -12,
+  "first" : 32,
+  "second" : 32,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -12,
+  "first" : 35,
+  "second" : 35,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -11,
+  "first" : 23,
+  "second" : 26,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -11,
+  "first" : 32,
+  "second" : 32,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -11,
+  "first" : 34,
+  "second" : 34,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -10,
+  "first" : 26,
+  "second" : 26,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -9,
+  "first" : 25,
+  "second" : 25,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -8,
+  "first" : 22,
+  "second" : 23,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -7,
+  "first" : 21,
+  "second" : 22,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -6,
+  "first" : 17,
+  "second" : 21,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -5,
+  "first" : 15,
+  "second" : 15,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -4,
+  "first" : 14,
+  "second" : 16,
+  "country" : "PIRATE_ISLES"
 }]

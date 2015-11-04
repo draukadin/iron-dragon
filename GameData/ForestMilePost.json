@@ -198,4 +198,29 @@
   "first" : -18,
   "second" : -18,
   "country" : "CALCENDEN"
+}, {
+  "z" : -17,
+  "first" : 36,
+  "second" : 37,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -16,
+  "first" : 34,
+  "second" : 34,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -16,
+  "first" : 36,
+  "second" : 36,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -15,
+  "first" : 34,
+  "second" : 34,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -12,
+  "first" : 33,
+  "second" : 34,
+  "country" : "PIRATE_ISLES"
 }]

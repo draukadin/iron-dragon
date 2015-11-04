@@ -73,4 +73,14 @@
   "first" : -19,
   "second" : -19,
   "country" : "CALCENDEN"
+}, {
+  "z" : -5,
+  "first" : 19,
+  "second" : 19,
+  "country" : "PIRATE_ISLES"
+}, {
+  "z" : -4,
+  "first" : 18,
+  "second" : 18,
+  "country" : "PIRATE_ISLES"
 }]
