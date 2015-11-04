@@ -168,4 +168,34 @@
   "first" : -10,
   "second" : -10,
   "country" : "SILVARRE"
+}, {
+  "z" : 25,
+  "first" : -20,
+  "second" : -20,
+  "country" : "CALCENDEN"
+}, {
+  "z" : 24,
+  "first" : -19,
+  "second" : -19,
+  "country" : "CALCENDEN"
+}, {
+  "z" : 23,
+  "first" : -19,
+  "second" : -16,
+  "country" : "CALCENDEN"
+}, {
+  "z" : 22,
+  "first" : -19,
+  "second" : -15,
+  "country" : "CALCENDEN"
+}, {
+  "z" : 21,
+  "first" : -18,
+  "second" : -17,
+  "country" : "CALCENDEN"
+}, {
+  "z" : 18,
+  "first" : -18,
+  "second" : -18,
+  "country" : "CALCENDEN"
 }]
