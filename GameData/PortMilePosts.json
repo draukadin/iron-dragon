@@ -1,76 +1,126 @@
 [{
-  "x" : -18,
-  "z" : -23
+  "z" : -23,
+  "first" : -18,
+  "second" : -18,
+  "country" : "KOLAND"
 }, {
-  "x" : -9,
-  "z" : -27
+  "z" : -27,
+  "first" : -9,
+  "second" : -9,
+  "country" : "KOLAND"
 }, {
-  "x" : -23,
-  "z" : -12
+  "z" : -12,
+  "first" : -23,
+  "second" : -23,
+  "country" : "KOLAND"
 }, {
-  "x" : -17,
-  "z" : 1
+  "first" : -17,
+  "second" : -17,
+  "z" : 1,
+  "country" : "ORC_WASTES"
 }, {
-  "x" : -32,
-  "z" : 8
+  "first" : -32,
+  "second" : -32,
+  "z" : 8,
+  "country" : "IRON_HOLM"
 }, {
-  "x" : -39,
-  "z" : 21
+  "first" : -39,
+  "second" : -39,
+  "z" : 21,
+  "country" : "EUSARCH"
 }, {
-  "x" : -44,
-  "z" : 30
+  "first" : -44,
+  "second" : -44,
+  "z" : 30,
+  "country" : "EUSARCH"
 }, {
-  "x" : 20,
-  "z" : -17
+  "first" : 20,
+  "second" : 20,
+  "z" : -17,
+  "country" : "PIRATE_ISLES"
 }, {
-  "x" : 21,
-  "z" : -14
+  "first" : 21,
+  "second" : 21,
+  "z" : -14,
+  "country" : "BRIGHT"
 }, {
-  "x" : 16,
-  "z" : -12
+  "first" : 16,
+  "second" : 16,
+  "z" : -12,
+  "country" : "BRIGHT"
 }, {
-  "x" : 16,
-  "z" : -5
+  "first" : 16,
+  "second" : 16,
+  "z" : -5,
+  "country" : "PIRATE_ISLES"
 }, {
-  "x" : 10,
-  "z" : 4
+  "first" : 10,
+  "second" : 10,
+  "z" : 4,
+  "country" : "JANOSHAL"
 }, {
-  "x" : 7,
-  "z" : 12
+  "first" : 7,
+  "second" : 7,
+  "z" : 12,
+  "country" : "JANOSHAL"
 }, {
-  "x" : 4,
-  "z" : 19
+  "first" : 4,
+  "second" : 4,
+  "z" : 19,
+  "country" : "WISLANDOR"
 }, {
-  "x" : -3,
-  "z" : 32
+  "first" : -3,
+  "second" : -3,
+  "z" : 32,
+  "country" : "WISLANDOR"
 }, {
-  "x" : -12,
-  "z" : 24
+  "first" : -12,
+  "second" : -12,
+  "z" : 24,
+  "country" : ""
 }, {
-  "x" : 28,
-  "z" : -20
+  "first" : 28,
+  "second" : 28,
+  "z" : -20,
+  "country" : "PIRATE_ISLES"
 }, {
-  "x" : 29,
-  "z" : -13
+  "first" : 29,
+  "second" : 29,
+  "z" : -13,
+  "country" : "PIRATE_ISLES"
 }, {
-  "x" : 35,
-  "z" : -17
+  "first" : 35,
+  "second" : 35,
+  "z" : -17,
+  "country" : "PIRATE_ISLES"
 }, {
-  "x" : 36,
-  "z" : -11
+  "first" : 36,
+  "second" : 36,
+  "z" : -11,
+  "country" : "OLDE_WORLD"
 }, {
-  "x" : 25,
-  "z" : 3
+  "first" : 25,
+  "second" : 25,
+  "z" : 3,
+  "country" : "OLDE_WORLD"
 }, {
-  "x" : 19,
-  "z" : 8
+  "first" : 19,
+  "second" : 19,
+  "z" : 8,
+  "country" : "OLDE_WORLD"
 }, {
-  "x" : 17,
-  "z" : 15
+  "first" : 17,
+  "second" : 17,
+  "z" : 15,
+  "country" : "OLDE_WORLD"
 }, {
-  "x" : -9,
-  "z" : -17
+  "first" : -9,
+  "second" : -9,
+  "z" : -17,
+  "country" : "KOLAND"
 }, {
-  "x" : 17,
-  "z" : -8
+  "first" : 17,
+  "second" : 17,
+  "z" : -8,
+  "country" : "BRIGHT"
 }]
