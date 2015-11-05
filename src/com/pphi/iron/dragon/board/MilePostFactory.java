@@ -1,17 +1,16 @@
 package com.pphi.iron.dragon.board;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Multimap;
 import com.pphi.iron.dragon.component.BasicMilePost;
 import com.pphi.iron.dragon.component.City;
-import com.pphi.iron.dragon.component.PortMilePost;
+import com.pphi.iron.dragon.component.Country;
 import com.pphi.iron.dragon.component.TerrainType;
 import com.pphi.iron.dragon.util.CoordinateDeserializationUtil;
 import edu.uci.ics.jung.graph.util.Pair;
 import org.pphi.hexagon.coordinates.HexagonCubeCoordinate;
 import org.pphi.hexagon.neighbors.PointyTopCubeNeighbors;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -29,9 +28,11 @@ public class MilePostFactory {
 
     private Map<HexagonCubeCoordinate, BasicMilePost> basicMilePosts;
     private Map<HexagonCubeCoordinate, City> cityMilePosts;
-    private Map<HexagonCubeCoordinate, PortMilePost> portMilePosts;
+
+    private IconFactory iconFactory;
 
     public MilePostFactory() throws IOException {
+        iconFactory = new IconFactory();
         mapCoordinates = newHashSet();
         basicMilePosts = newHashMap();
         buildMilePosts(Paths.get("GameData/AlpineMilePosts.json"), TerrainType.ALPINE);
@@ -41,37 +42,24 @@ public class MilePostFactory {
         buildMilePosts(Paths.get("GameData/MountainMilePosts.json"), TerrainType.MOUNTAIN);
         buildMilePosts(Paths.get("GameData/OceanMilePosts.json"), TerrainType.SEA_POINT);
         buildMilePosts(Paths.get("GameData/PlainMilePosts.json"), TerrainType.PLAIN);
+        buildMilePosts(Paths.get("GameData/PortMilePosts.json"), TerrainType.PORT);
         buildCityMilePosts();
-        buildPortMilePosts();
     }
 
     private void buildMilePosts(Path path, TerrainType terrainType) throws IOException {
-        Multimap<Integer, Pair<Integer>> zAndXCoords = CoordinateDeserializationUtil.getCoords(path);
-        for (Map.Entry<Integer, Collection<Pair<Integer>>> entry : zAndXCoords.asMap().entrySet()) {
+        Multimap<Integer, MilePostJson> zAndXCoords = CoordinateDeserializationUtil.getCoords(path);
+        for (Map.Entry<Integer, Collection<MilePostJson>> entry : zAndXCoords.asMap().entrySet()) {
             int z = entry.getKey();
-            for (Pair<Integer> xCords : entry.getValue()) {
+            for (MilePostJson milePostJson : entry.getValue()) {
+                Pair<Integer> xCords = milePostJson.getPair();
+                Country country = milePostJson.getCountry();
                 for (int i = xCords.getFirst(); i <= xCords.getSecond(); i++) {
-                    BasicMilePost basicMilePost = new BasicMilePost(i, z, terrainType);
+                    BasicMilePost basicMilePost = new BasicMilePost(i, z, terrainType, country);
                     HexagonCubeCoordinate coord = basicMilePost.getCubeCoordinate();
                     mapCoordinates.add(coord);
                     basicMilePosts.put(coord, basicMilePost);
                 }
             }
-        }
-    }
-
-    private void buildPortMilePosts() throws IOException {
-        Path path = Paths.get("GameData/PortMilePosts.json");
-        ObjectMapper objectMapper = new ObjectMapper();
-        JsonNode node = objectMapper.readTree(path.toFile());
-        portMilePosts = newHashMap();
-        for (JsonNode childNode : node) {
-            int x = childNode.get("x").asInt();
-            int z = childNode.get("z").asInt();
-            PortMilePost portMilePost = new PortMilePost(x, z);
-            HexagonCubeCoordinate coord = portMilePost.getCubeCoordinate();
-            mapCoordinates.add(coord);
-            portMilePosts.put(coord, portMilePost);
         }
     }
 
@@ -96,11 +84,27 @@ public class MilePostFactory {
     }
 
     public MilePost createMilePost(HexagonCubeCoordinate coordinate) {
+        BasicMilePost basicMilePost = basicMilePosts.get(coordinate);
+        City city = cityMilePosts.get(coordinate);
+        Country country;
+        TerrainType terrainType;
+        if (city != null && basicMilePost != null) {
+            terrainType = TerrainType.CITY_AND_PORT;
+            country = city.getCountry();
+        } else if (city == null) {
+            terrainType = basicMilePost.getTerrainType();
+            country = basicMilePost.getCountry();
+        } else {
+            terrainType = city.getTerrainType();
+            country = city.getCountry();
+        }
+        Icon icon = iconFactory.getIcon(terrainType);
         return MilePost
                 .builder(coordinate)
-                .milePost(basicMilePosts.get(coordinate))
-                .cityMilePost(cityMilePosts.get(coordinate))
-                .portMilePost(portMilePosts.get(coordinate))
+                .milePost(basicMilePost)
+                .cityMilePost(city)
+                .icon(icon)
+                .country(country)
                 .build();
     }
 }
