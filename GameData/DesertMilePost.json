@@ -43,4 +43,19 @@
   "first" : -23,
   "second" : -22,
   "country" : "CALCENDEN"
+}, {
+  "z" : 15,
+  "first" : -30,
+  "second" : -30,
+  "country" : "IRON_HOLM"
+}, {
+  "z" : 14,
+  "first" : -29,
+  "second" : -29,
+  "country" : "IRON_HOLM"
+}, {
+  "z" : 7,
+  "first" : -25,
+  "second" : -25,
+  "country" : "IRON_HOLM"
 }]

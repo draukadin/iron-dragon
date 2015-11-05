@@ -128,4 +128,24 @@
   "first" : -5,
   "second" : -5,
   "country" : "WISLANDOR"
+}, {
+  "z" : 9,
+  "first" : -26,
+  "second" : -26,
+  "country" : "IRON_HOLM"
+}, {
+  "z" : 8,
+  "first" : -26,
+  "second" : -25,
+  "country" : "IRON_HOLM"
+}, {
+  "z" : 6,
+  "first" : -28,
+  "second" : -28,
+  "country" : "IRON_HOLM"
+}, {
+  "z" : 5,
+  "first" : -23,
+  "second" : -23,
+  "country" : "IRON_HOLM"
 }]

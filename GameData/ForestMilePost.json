@@ -293,4 +293,29 @@
   "first" : 5,
   "second" : 5,
   "country" : "WISLANDOR"
+}, {
+  "z" : 15,
+  "first" : -34,
+  "second" : -33,
+  "country" : "IRON_HOLM"
+}, {
+  "z" : 14,
+  "first" : -33,
+  "second" : -31,
+  "country" : "IRON_HOLM"
+}, {
+  "z" : 13,
+  "first" : -33,
+  "second" : -31,
+  "country" : "IRON_HOLM"
+}, {
+  "z" : 12,
+  "first" : -32,
+  "second" : -32,
+  "country" : "IRON_HOLM"
+}, {
+  "z" : 11,
+  "first" : -31,
+  "second" : -31,
+  "country" : "IRON_HOLM"
 }]
