@@ -83,4 +83,49 @@
   "first" : 18,
   "second" : 18,
   "country" : "PIRATE_ISLES"
+}, {
+  "z" : 29,
+  "first" : -5,
+  "second" : -4,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 28,
+  "first" : -4,
+  "second" : -4,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 27,
+  "first" : -6,
+  "second" : -5,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 26,
+  "first" : -6,
+  "second" : -5,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 25,
+  "first" : -7,
+  "second" : -7,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 25,
+  "first" : -4,
+  "second" : -4,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 24,
+  "first" : -7,
+  "second" : -7,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 23,
+  "first" : -7,
+  "second" : -7,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 21,
+  "first" : -5,
+  "second" : -5,
+  "country" : "WISLANDOR"
 }]

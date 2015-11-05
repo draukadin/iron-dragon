@@ -668,4 +668,94 @@
   "first" : 14,
   "second" : 16,
   "country" : "PIRATE_ISLES"
+}, {
+  "z" : 32,
+  "first" : -4,
+  "second" : -4,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 31,
+  "first" : -5,
+  "second" : -4,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 30,
+  "first" : -3,
+  "second" : -2,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 29,
+  "first" : -8,
+  "second" : -6,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 28,
+  "first" : -9,
+  "second" : -6,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 27,
+  "first" : -4,
+  "second" : -3,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 26,
+  "first" : -3,
+  "second" : -2,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 25,
+  "first" : -2,
+  "second" : -2,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 24,
+  "first" : 1,
+  "second" : 2,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 23,
+  "first" : -4,
+  "second" : -3,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 23,
+  "first" : -1,
+  "second" : 3,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 22,
+  "first" : 0,
+  "second" : 4,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 21,
+  "first" : -2,
+  "second" : 1,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 21,
+  "first" : 4,
+  "second" : 5,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 20,
+  "first" : -1,
+  "second" : 1,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 19,
+  "first" : -2,
+  "second" : -1,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 19,
+  "first" : 2,
+  "second" : 2,
+  "country" : "WISLANDOR"
+}, {
+  "z" : 18,
+  "first" : -1,
+  "second" : -1,
+  "country" : "WISLANDOR"
 }]
