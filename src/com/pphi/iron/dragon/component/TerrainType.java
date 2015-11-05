@@ -19,7 +19,7 @@ public enum TerrainType {
     SMALL(3, "small_city.png"),
     MEDIUM(3, "medium_city.png"),
     MAJOR(5, "major_city.png"),
-    NONE(0, "");
+    CITY_AND_PORT(5, "port_in_major_city.png");
 
     private final int buildingCost;
     private final String imageFileName;
