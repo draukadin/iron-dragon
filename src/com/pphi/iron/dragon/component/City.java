@@ -22,7 +22,7 @@ import static com.pphi.iron.dragon.component.TerrainType.SMALL;
 
 import com.google.common.base.MoreObjects;
 import com.iron.dragon.exceptions.UnsupportedEnumException;
-import org.pphi.hexagon.coordinates.HexagonCubeCoordinate;
+import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
 
 import java.util.List;
 

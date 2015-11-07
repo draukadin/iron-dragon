@@ -1,8 +1,8 @@
 package com.pphi.iron.dragon.component;
 
 import com.google.common.base.Objects;
-import org.pphi.hexagon.coordinates.HexagonCubeCoordinate;
-import org.pphi.hexagon.util.CoordinateUtil;
+import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
+import com.pphi.hexagon.util.CoordinateUtil;
 
 public class BasicMilePost {
 

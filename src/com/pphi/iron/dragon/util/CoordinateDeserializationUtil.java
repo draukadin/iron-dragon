@@ -24,7 +24,13 @@ public final class CoordinateDeserializationUtil {
             int first = childNode.get("first").asInt();
             int second = childNode.get("second").asInt();
             Pair<Integer> pair = new Pair<>(first, second);
-            Country country = Country.valueOf(childNode.get("country").asText());
+            JsonNode countryNode = childNode.get("country");
+            Country country;
+            if (countryNode == null) {
+                country = Country.NONE;
+            } else {
+                country = Country.valueOf(childNode.get("country").asText());
+            }
             map.put(z, new MilePostJson(country, pair));
         }
         return map;

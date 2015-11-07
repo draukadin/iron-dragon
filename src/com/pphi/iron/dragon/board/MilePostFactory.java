@@ -7,8 +7,8 @@ import com.pphi.iron.dragon.component.Country;
 import com.pphi.iron.dragon.component.TerrainType;
 import com.pphi.iron.dragon.util.CoordinateDeserializationUtil;
 import edu.uci.ics.jung.graph.util.Pair;
-import org.pphi.hexagon.coordinates.HexagonCubeCoordinate;
-import org.pphi.hexagon.neighbors.PointyTopCubeNeighbors;
+import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
+import com.pphi.hexagon.neighbors.PointyTopCubeNeighbors;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -101,6 +101,7 @@ public class MilePostFactory {
         Icon icon = iconFactory.getIcon(terrainType);
         return MilePost
                 .builder(coordinate)
+                .terrainType(terrainType)
                 .milePost(basicMilePost)
                 .cityMilePost(city)
                 .icon(icon)

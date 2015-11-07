@@ -2,7 +2,7 @@ package com.pphi.iron.dragon.component;
 
 import com.google.common.collect.ImmutableList;
 import com.iron.dragon.exceptions.UnsupportedEnumException;
-import org.pphi.hexagon.coordinates.HexagonCubeCoordinate;
+import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

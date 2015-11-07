@@ -9,7 +9,7 @@ import com.pphi.iron.dragon.component.BasicMilePost;
 import com.pphi.iron.dragon.component.City;
 import com.pphi.iron.dragon.component.Country;
 import com.pphi.iron.dragon.component.TerrainType;
-import org.pphi.hexagon.coordinates.HexagonCubeCoordinate;
+import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
 
 public class MilePost {
 
