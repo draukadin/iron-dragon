@@ -37,7 +37,7 @@
   "first" : 20,
   "second" : 20,
   "z" : -17,
-  "country" : "PIRATE_ISLES"
+  "country" : "NORTHERN_WASTE"
 }, {
   "first" : 21,
   "second" : 21,
@@ -77,7 +77,7 @@
   "first" : -12,
   "second" : -12,
   "z" : 24,
-  "country" : ""
+  "country" : "SILVARRE"
 }, {
   "first" : 28,
   "second" : 28,
