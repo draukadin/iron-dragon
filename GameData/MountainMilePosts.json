@@ -1183,4 +1183,74 @@
   "first" : 4,
   "second" : 4,
   "country" : "RAKHATZ"
+}, {
+  "z": -5,
+  "first": 9,
+  "second": 9,
+  "country": "BRIGHT"
+}, {
+  "z": -6,
+  "first": 5,
+  "second": 8,
+  "country": "BRIGHT"
+}, {
+  "z": -7,
+  "first": 9,
+  "second": 9,
+  "country": "BRIGHT"
+}, {
+  "z": -7,
+  "first": 12,
+  "second": 12,
+  "country": "BRIGHT"
+}, {
+  "z": -8,
+  "first": 5,
+  "second": 5,
+  "country": "BRIGHT"
+}, {
+  "z": -8,
+  "first": 7,
+  "second": 8,
+  "country": "BRIGHT"
+}, {
+  "z": -8,
+  "first": 10,
+  "second": 10,
+  "country": "BRIGHT"
+}, {
+  "z": -8,
+  "first": 14,
+  "second": 14,
+  "country": "BRIGHT"
+}, {
+  "z": -9,
+  "first": 7,
+  "second": 9,
+  "country": "BRIGHT"
+}, {
+  "z": -9,
+  "first": 14,
+  "second": 15,
+  "country": "BRIGHT"
+}, {
+  "z": -10,
+  "first": 8,
+  "second": 10,
+  "country": "BRIGHT"
+}, {
+  "z": -10,
+  "first": 17,
+  "second": 19,
+  "country": "BRIGHT"
+}, {
+  "z": -11,
+  "first": 8,
+  "second": 8,
+  "country": "BRIGHT"
+}, {
+  "z": -11,
+  "first": 18,
+  "second": 18,
+  "country": "BRIGHT"
 }]

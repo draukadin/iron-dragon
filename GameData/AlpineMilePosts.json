@@ -488,4 +488,14 @@
   "first" : 4,
   "second" : 4,
   "country" : "RAKHATZ"
+}, {
+  "z": -7,
+  "first": 4,
+  "second": 4,
+  "country": "BRIGHT"
+}, {
+  "z": -11,
+  "first": 19,
+  "second": 19,
+  "country": "BRIGHT"
 }]
