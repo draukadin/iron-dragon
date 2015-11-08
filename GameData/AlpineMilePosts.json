@@ -183,4 +183,44 @@
   "first" : -6,
   "second" : -6,
   "country" : "KOLAND"
+}, {
+  "z" : 11,
+  "first" : -2,
+  "second" : -1,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 10,
+  "first" : -1,
+  "second" : -1,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 8,
+  "first" : -3,
+  "second" : -3,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 7,
+  "first" : -2,
+  "second" : -2,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 3,
+  "first" : 2,
+  "second" : 2,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 2,
+  "first" : 3,
+  "second" : 3,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 1,
+  "first" : 3,
+  "second" : 4,
+  "country" : "JANOSHAL"
+}, {
+  "z" : -1,
+  "first" : 5,
+  "second" : 5,
+  "country" : "JANOSHAL"
 }]

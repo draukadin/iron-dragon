@@ -1133,4 +1133,144 @@
   "first" : -10,
   "second" : -10,
   "country" : "KOLAND"
+}, {
+  "z" : 16,
+  "first" : 2,
+  "second" : 2,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 15,
+  "first" : 2,
+  "second" : 4,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 14,
+  "first" : -2,
+  "second" : 5,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 13,
+  "first" : -2,
+  "second" : -2,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 13,
+  "first" : 3,
+  "second" : 3,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 13,
+  "first" : 5,
+  "second" : 5,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 12,
+  "first" : 1,
+  "second" : 1,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 12,
+  "first" : 3,
+  "second" : 3,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 12,
+  "first" : 6,
+  "second" : 6,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 11,
+  "first" : -3,
+  "second" : -3,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 11,
+  "first" : 6,
+  "second" : 6,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 10,
+  "first" : -3,
+  "second" : -2,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 10,
+  "first" : 0,
+  "second" : 0,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 10,
+  "first" : 2,
+  "second" : 6,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 9,
+  "first" : 1,
+  "second" : 4,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 9,
+  "first" : 6,
+  "second" : 7,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 8,
+  "first" : 1,
+  "second" : 6,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 7,
+  "first" : 4,
+  "second" : 6,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 6,
+  "first" : 5,
+  "second" : 7,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 5,
+  "first" : 7,
+  "second" : 7,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 4,
+  "first" : 3,
+  "second" : 3,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 4,
+  "first" : 7,
+  "second" : 8,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 3,
+  "first" : 4,
+  "second" : 4,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 3,
+  "first" : 6,
+  "second" : 11,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 2,
+  "first" : 6,
+  "second" : 9,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 1,
+  "first" : 6,
+  "second" : 9,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 0,
+  "first" : 7,
+  "second" : 8,
+  "country" : "JANOSHAL"
+}, {
+  "z" : -1,
+  "first" : 8,
+  "second" : 8,
+  "country" : "JANOSHAL"
 }]

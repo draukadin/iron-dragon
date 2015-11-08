@@ -753,4 +753,119 @@
   "first" : -16,
   "second" : -16,
   "country" : "KOLAND"
+}, {
+  "z" : 13,
+  "first" : -1,
+  "second" : -1,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 13,
+  "first" : 4,
+  "second" : 4,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 12,
+  "first" : -1,
+  "second" : -1,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 12,
+  "first" : 2,
+  "second" : 2,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 12,
+  "first" : 4,
+  "second" : 5,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 11,
+  "first" : 0,
+  "second" : 2,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 11,
+  "first" : 4,
+  "second" : 5,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 10,
+  "first" : 1,
+  "second" : 1,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 9,
+  "first" : -3,
+  "second" : -2,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 9,
+  "first" : 0,
+  "second" : 0,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 8,
+  "first" : -1,
+  "second" : -1,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 7,
+  "first" : 0,
+  "second" : 2 ,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 6,
+  "first" : 0,
+  "second" : 0,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 6,
+  "first" : 2,
+  "second" : 4,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 5,
+  "first" : 1,
+  "second" : 2,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 5,
+  "first" : 5,
+  "second" : 5,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 4,
+  "first" : 2,
+  "second" : 2,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 4,
+  "first" : 5,
+  "second" : 5,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 3,
+  "first" : 3,
+  "second" : 3,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 2,
+  "first" : 4,
+  "second" : 4,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 1,
+  "first" : 5,
+  "second" : 5,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 0,
+  "first" : 5,
+  "second" : 6,
+  "country" : "JANOSHAL"
+}, {
+  "z" : -1,
+  "first" : 6,
+  "second" : 7,
+  "country" : "JANOSHAL"
 }]
