@@ -508,4 +508,74 @@
   "first" : -10,
   "second" : -10,
   "country" : "ORC_WASTES"
+}, {
+  "z" : 9,
+  "first" : -6,
+  "second" : -6,
+  "country" : "RAKHATZ"
+}, {
+  "z" : 8,
+  "first" : -8,
+  "second" : -8,
+  "country" : "RAKHATZ"
+}, {
+  "z" : 7,
+  "first" : -8,
+  "second" : -8,
+  "country" : "RAKHATZ"
+}, {
+  "z" : 6,
+  "first" : -8,
+  "second" : -8,
+  "country" : "RAKHATZ"
+}, {
+  "z" : 7,
+  "first" : -3,
+  "second" : -3,
+  "country" : "RAKHATZ"
+}, {
+  "z" : 6,
+  "first" : -2,
+  "second" : -2,
+  "country" : "RAKHATZ"
+}, {
+  "z" : 5,
+  "first" : -6,
+  "second" : -6,
+  "country" : "RAKHATZ"
+}, {
+  "z" : 5,
+  "first" : -1,
+  "second" : -1,
+  "country" : "RAKHATZ"
+}, {
+  "z" : 0,
+  "first" : 3,
+  "second" : 3,
+  "country" : "RAKHATZ"
+}, {
+  "z" : -1,
+  "first" : 1,
+  "second" : 4,
+  "country" : "RAKHATZ"
+}, {
+  "z" : -2,
+  "first" : 4,
+  "second" : 5,
+  "country" : "RAKHATZ"
+}, {
+  "z" : -3,
+  "first" : 3,
+  "second" : 3,
+  "country" : "RAKHATZ"
+}, {
+  "z" : -3,
+  "first" : 5,
+  "second" : 6,
+  "country" : "RAKHATZ"
+}, {
+  "z" : -5,
+  "first" : 5,
+  "second" : 5,
+  "country" : "RAKHATZ"
 }]

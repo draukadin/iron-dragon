@@ -1418,4 +1418,49 @@
   "first" : -12,
   "second" : -12,
   "country" : "ORC_WASTES"
+}, {
+  "z" : 8,
+  "first" : -7,
+  "second" : -7,
+  "country" : "RAKHATZ"
+}, {
+  "z" : 6,
+  "first" : -3,
+  "second" : -3,
+  "country" : "RAKHATZ"
+}, {
+  "z" : 5,
+  "first" : -2,
+  "second" : -2,
+  "country" : "RAKHATZ"
+}, {
+  "z" : 5,
+  "first" : 0,
+  "second" : 0,
+  "country" : "RAKHATZ"
+}, {
+  "z" : 4,
+  "first" : -1,
+  "second" : -1,
+  "country" : "RAKHATZ"
+}, {
+  "z" : 0,
+  "first" : 1,
+  "second" : 1,
+  "country" : "RAKHATZ"
+}, {
+  "z" : -1,
+  "first" : -2,
+  "second" : -1,
+  "country" : "RAKHATZ"
+}, {
+  "z" : -2,
+  "first" : 3,
+  "second" : 3,
+  "country" : "RAKHATZ"
+}, {
+  "z" : -4,
+  "first" : 5,
+  "second" : 5,
+  "country" : "RAKHATZ"
 }]
