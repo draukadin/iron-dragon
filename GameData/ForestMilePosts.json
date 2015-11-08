@@ -823,4 +823,209 @@
   "first": -2,
   "second": -2,
   "country": "GLYTH_GAMEL"
+}, {
+  "z": -9,
+  "first": 5,
+  "second": 5,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -10,
+  "first": 4,
+  "second": 4,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -11,
+  "first": 5,
+  "second": 5,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -11,
+  "first": 7,
+  "second": 7,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -12,
+  "first": 6,
+  "second": 6,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -12,
+  "first": 8,
+  "second": 8,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -13,
+  "first": 7,
+  "second": 7,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -13,
+  "first": 9,
+  "second": 10,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -14,
+  "first": 7,
+  "second": 8,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -14,
+  "first": 11,
+  "second": 11,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -15,
+  "first": 10,
+  "second": 10,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -18,
+  "first": 16,
+  "second": 16,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -19,
+  "first": 15,
+  "second": 15,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -20,
+  "first": 16,
+  "second": 16,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -13,
+  "first": -2,
+  "second": -2,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -13,
+  "first": 0,
+  "second": 0,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -14,
+  "first": -2,
+  "second": -2,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -14,
+  "first": 2,
+  "second": 2,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -15,
+  "first": -5,
+  "second": -5,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -15,
+  "first": -2,
+  "second": -1,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -15,
+  "first": 1,
+  "second": 1,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -16,
+  "first": -4,
+  "second": -3,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -16,
+  "first": -1,
+  "second": -1,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -17,
+  "first": -6,
+  "second": -6,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -18,
+  "first": -2,
+  "second": -2,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -18,
+  "first": 3,
+  "second": 3,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -19,
+  "first": -1,
+  "second": -1,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -20,
+  "first": 0,
+  "second": 0,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -20,
+  "first": 8,
+  "second": 8,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -21,
+  "first": -3,
+  "second": -3,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -21,
+  "first": 1,
+  "second": 1,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -21,
+  "first": 3,
+  "second": 3,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -21,
+  "first": 5,
+  "second": 5,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -22,
+  "first": -2,
+  "second": -2,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -22,
+  "first": 6,
+  "second": 7,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -23,
+  "first": 0,
+  "second": 0,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -23,
+  "first": 7,
+  "second": 9,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -24,
+  "first": 9,
+  "second": 9,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -9,
+  "first": -10,
+  "second": -10,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -10,
+  "first": -11,
+  "second": -12,
+  "country": "NORTHERN_WASTE"
+}, {
+  "z": -11,
+  "first": -12,
+  "second": -12,
+  "country": "NORTHERN_WASTE"
 }]
