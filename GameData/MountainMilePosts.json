@@ -868,4 +868,209 @@
   "first" : 6,
   "second" : 7,
   "country" : "JANOSHAL"
+}, {
+  "z" : 18,
+  "first" : -26,
+  "second" : -26,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 17,
+  "first" : -27,
+  "second" : -27,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 17,
+  "first" : -23,
+  "second" : -23,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 17,
+  "first" : -20,
+  "second" : -20,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 16,
+  "first" : -23,
+  "second" : -23,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 15,
+  "first" : -22,
+  "second" : -22,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 14,
+  "first" : -23,
+  "second" : -20,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 13,
+  "first" : -28,
+  "second" : -27,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 13,
+  "first" : -23,
+  "second" : -23,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 13,
+  "first" : -21,
+  "second" : -20,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 13,
+  "first" : -15,
+  "second" : -14,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 12,
+  "first" : -27,
+  "second" : -27,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 12,
+  "first" : -23,
+  "second" : -23,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 12,
+  "first" : -21,
+  "second" : -19,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 11,
+  "first" : -26,
+  "second" : -26,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 11,
+  "first" : -22,
+  "second" : -22,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 11,
+  "first" : -20,
+  "second" : -20,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 11,
+  "first" : -13,
+  "second" : -13,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 10,
+  "first" : -22,
+  "second" : -22,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 10,
+  "first" : -20,
+  "second" : -20,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 10,
+  "first" : -16,
+  "second" : -15,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 10,
+  "first" : -13,
+  "second" : -12,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 10,
+  "first" : -9,
+  "second" : -9,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 9,
+  "first" : -22,
+  "second" : -22,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 9,
+  "first" : -20,
+  "second" : -20,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 9,
+  "first" : -18,
+  "second" : -18,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 9,
+  "first" : -14,
+  "second" : -11,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 8,
+  "first" : -21,
+  "second" : -19,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 8,
+  "first" : -17,
+  "second" : -17,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 8,
+  "first" : -13,
+  "second" : -12,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 7,
+  "first" : -20,
+  "second" : -19,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 7,
+  "first" : -17,
+  "second" : -17,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 7,
+  "first" : -12,
+  "second" : -12,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 6,
+  "first" : -19,
+  "second" : -19,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 6,
+  "first" : -18,
+  "second" : -18,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 5,
+  "first" : -22,
+  "second" : -22,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 5,
+  "first" : -18,
+  "second" : -17,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 5,
+  "first" : -9,
+  "second" : -9,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 4,
+  "first" : -8,
+  "second" : -7,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 2,
+  "first" : -8,
+  "second" : -6,
+  "country" : "ORC_WASTES"
+}, {
+  "z" : 1,
+  "first" : -8,
+  "second" : -8,
+  "country" : "ORC_WASTES"
 }]
