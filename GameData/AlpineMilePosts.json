@@ -673,4 +673,79 @@
   "first": -4,
   "second": -3,
   "country": "NORTHERN_WASTE"
+}, {
+  "z": 26,
+  "first": 17,
+  "second": 17,
+  "country": "OLDE_WORLD"
+}, {
+  "z": 24,
+  "first": 19,
+  "second": 19,
+  "country": "OLDE_WORLD"
+}, {
+  "z": 23,
+  "first": 20,
+  "second": 20,
+  "country": "OLDE_WORLD"
+}, {
+  "z": 11,
+  "first": 17,
+  "second": 18,
+  "country": "OLDE_WORLD"
+}, {
+  "z": 10,
+  "first": 21,
+  "second": 22,
+  "country": "OLDE_WORLD"
+}, {
+  "z": 9,
+  "first": 22,
+  "second": 23,
+  "country": "OLDE_WORLD"
+}, {
+  "z": 8,
+  "first": 23,
+  "second": 23,
+  "country": "OLDE_WORLD"
+}, {
+  "z": 8,
+  "first": 25,
+  "second": 25,
+  "country": "OLDE_WORLD"
+}, {
+  "z": 7,
+  "first": 26,
+  "second": 29,
+  "country": "OLDE_WORLD"
+}, {
+  "z": 6,
+  "first": 27,
+  "second": 29,
+  "country": "OLDE_WORLD"
+}, {
+  "z": 5,
+  "first": 28,
+  "second": 30,
+  "country": "OLDE_WORLD"
+}, {
+  "z": -3,
+  "first": 32,
+  "second": 32,
+  "country": "OLDE_WORLD"
+}, {
+  "z": -4,
+  "first": 30,
+  "second": 32,
+  "country": "OLDE_WORLD"
+}, {
+  "z": -7,
+  "first": 34,
+  "second": 34,
+  "country": "OLDE_WORLD"
+}, {
+  "z": -8,
+  "first": 35,
+  "second": 35,
+  "country": "OLDE_WORLD"
 }]
