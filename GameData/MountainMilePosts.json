@@ -1253,4 +1253,89 @@
   "first": 18,
   "second": 18,
   "country": "BRIGHT"
+}, {
+  "z": -2,
+  "first": -5,
+  "second": -5,
+  "country": "GLYTH_GAMEL"
+}, {
+  "z": -2,
+  "first": -2,
+  "second": -1,
+  "country": "GLYTH_GAMEL"
+}, {
+  "z": -3,
+  "first": 1,
+  "second": 1,
+  "country": "GLYTH_GAMEL"
+}, {
+  "z": -4,
+  "first": -3,
+  "second": -3,
+  "country": "GLYTH_GAMEL"
+}, {
+  "z": -5,
+  "first": 1,
+  "second": 2,
+  "country": "GLYTH_GAMEL"
+}, {
+  "z": -6,
+  "first": 2,
+  "second": 3,
+  "country": "GLYTH_GAMEL"
+}, {
+  "z": -7,
+  "first": -2,
+  "second": -2,
+  "country": "GLYTH_GAMEL"
+}, {
+  "z": -7,
+  "first": 0,
+  "second": 0,
+  "country": "GLYTH_GAMEL"
+}, {
+  "z": -8,
+  "first": -2,
+  "second": -2,
+  "country": "GLYTH_GAMEL"
+}, {
+  "z": -8,
+  "first": 4,
+  "second": 4,
+  "country": "GLYTH_GAMEL"
+}, {
+  "z": -9,
+  "first": -2,
+  "second": -2,
+  "country": "GLYTH_GAMEL"
+}, {
+  "z": -9,
+  "first": 2,
+  "second": 2,
+  "country": "GLYTH_GAMEL"
+}, {
+  "z": -10,
+  "first": -1,
+  "second": -1,
+  "country": "GLYTH_GAMEL"
+}, {
+  "z": -10,
+  "first": 2,
+  "second": 2,
+  "country": "GLYTH_GAMEL"
+}, {
+  "z": -11,
+  "first": 0,
+  "second": 0,
+  "country": "GLYTH_GAMEL"
+}, {
+  "z": -11,
+  "first": 2,
+  "second": 2,
+  "country": "GLYTH_GAMEL"
+}, {
+  "z": -12,
+  "first": 0,
+  "second": 1,
+  "country": "GLYTH_GAMEL"
 }]
