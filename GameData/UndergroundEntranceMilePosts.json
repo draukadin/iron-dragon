@@ -1,0 +1,41 @@
+[{
+  "z": -9,
+  "first": -17,
+  "second": -17,
+  "country": "KOLAND"
+}, {
+  "z": -7,
+  "first": -3,
+  "second": -3,
+  "country": "GLYTH_GAMEL"
+}, {
+  "z": 14,
+  "first": -16,
+  "second": -16,
+  "country": "ORC_WASTES"
+}, {
+  "z": 14,
+  "first": -28,
+  "second": -28,
+  "country": "ORC_WASTES"
+}, {
+  "z": -9,
+  "first": -17,
+  "second": -17,
+  "country": "UNDERGROUND"
+}, {
+  "z": -7,
+  "first": -3,
+  "second": -3,
+  "country": "UNDERGROUND"
+}, {
+  "z": 14,
+  "first": -16,
+  "second": -16,
+  "country": "UNDERGROUND"
+}, {
+  "z": 14,
+  "first": -28,
+  "second": -28,
+  "country": "UNDERGROUND"
+}]
