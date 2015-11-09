@@ -570,8 +570,8 @@
   "country" : "IRON_HOLM"
 }, {
   "z" : 4,
-  "first" : -24,
-  "second" : -24,
+  "first" : -23,
+  "second" : -23,
   "country" : "IRON_HOLM"
 }, {
   "z" : 3,
@@ -814,6 +814,11 @@
   "second" : 2 ,
   "country" : "JANOSHAL"
 }, {
+  "z" : 7,
+  "first" : 7,
+  "second" : 7 ,
+  "country" : "JANOSHAL"
+}, {
   "z" : 6,
   "first" : 0,
   "second" : 0,
@@ -832,6 +837,11 @@
   "z" : 5,
   "first" : 5,
   "second" : 5,
+  "country" : "JANOSHAL"
+}, {
+  "z" : 5,
+  "first" : 8,
+  "second" : 8,
   "country" : "JANOSHAL"
 }, {
   "z" : 4,
@@ -1040,8 +1050,8 @@
   "country" : "ORC_WASTES"
 }, {
   "z" : 6,
-  "first" : -18,
-  "second" : -18,
+  "first" : -17,
+  "second" : -17,
   "country" : "ORC_WASTES"
 }, {
   "z" : 5,
