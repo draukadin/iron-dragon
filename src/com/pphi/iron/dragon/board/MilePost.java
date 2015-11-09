@@ -5,13 +5,14 @@ import javax.swing.Icon;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import com.google.common.base.Optional;
+import com.google.common.collect.ComparisonChain;
 import com.pphi.iron.dragon.component.BasicMilePost;
 import com.pphi.iron.dragon.component.City;
 import com.pphi.iron.dragon.component.Country;
 import com.pphi.iron.dragon.component.TerrainType;
 import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
 
-public class MilePost {
+public class MilePost implements Comparable<MilePost> {
 
     private HexagonCubeCoordinate cubeCoordinate;
     private Optional<City> cityMilePost;
@@ -80,11 +81,20 @@ public class MilePost {
     public String toString() {
         return MoreObjects.toStringHelper(this)
                 .add("cubeCoordinate", cubeCoordinate)
+                .add("terrainType", terrainType)
+                .add("country", country)
                 .toString();
     }
 
     public static Builder builder(HexagonCubeCoordinate coordinate) {
         return new Builder(coordinate);
+    }
+
+    @Override
+    public int compareTo(MilePost o) {
+        return ComparisonChain.start()
+                .compare(cubeCoordinate, o.cubeCoordinate)
+                .result();
     }
 
     public static final class Builder {
