@@ -79,8 +79,8 @@ public enum City {
     SAADAH(-8, -5, 13, "Saadah", MEDIUM, SILVARRE, "Wine"),
     SBADEH(-7, -10, 17, "Sbadeh", SMALL, SILVARRE, "Gems"),
     SHAYOBH(-11, -12, 23, "Shayobh", SMALL, SILVARRE, "Fruit"),
-    UDERNY(2, -6, 4, "Uderny", SMALL, UNDERGROUND, "Ale"),
-    ULOGGH(0, 2, -2, "Uloggh", MAJOR, UNDERGROUND, "Ale"),
+    UDERNY(-14, 8, 6, "Uderyn", SMALL, UNDERGROUND, "Ale"),
+    ULOGGH(-16, 16, 0, "Uloggh", MAJOR, UNDERGROUND, "Ale"),
     WEST_WYCKK(-2, -22, 24, "West Wyckk", MEDIUM, WISLANDOR, "Lumber", "Jewelry"),
     WIKKEDDE(3, -23, 20, "Wikkedde", MAJOR, WISLANDOR),
     WYRRE(-3, -28, 31, "Wyrre", SMALL, WISLANDOR, "Jewelry");
