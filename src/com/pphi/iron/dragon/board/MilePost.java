@@ -69,12 +69,14 @@ public class MilePost implements Comparable<MilePost> {
             return false;
         }
         MilePost milePost = (MilePost) o;
-        return Objects.equal(cubeCoordinate, milePost.cubeCoordinate);
+        return Objects.equal(cubeCoordinate, milePost.cubeCoordinate)
+                && Objects.equal(terrainType, milePost.terrainType)
+                && Objects.equal(country, milePost.country);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(cubeCoordinate);
+        return Objects.hashCode(cubeCoordinate, terrainType, country);
     }
 
     @Override
