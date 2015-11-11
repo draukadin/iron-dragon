@@ -1,7 +1,12 @@
 package com.pphi.iron.dragon.board;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.base.Joiner;
 import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Table;
 import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
 import com.pphi.iron.dragon.component.BasicMilePost;
 import com.pphi.iron.dragon.component.City;
@@ -9,12 +14,15 @@ import com.pphi.iron.dragon.component.TerrainType;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import static com.google.common.collect.Lists.newArrayList;
+import static com.google.common.collect.Sets.newHashSet;
 import static com.google.common.collect.Sets.newTreeSet;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
@@ -30,7 +38,7 @@ public class MilePostFactoryTest {
         milePostFactory = new MilePostFactory();
     }
 
-    @Test  //This test should pass once all the MilePosts have been created
+    @Test
     public void getMapCoordinatesTest() throws Exception {
         Set<HexagonCubeCoordinate> mapCoordinates = milePostFactory.getMapCoordinates();
         Multimap<Integer, MilePost> milePostMap = ArrayListMultimap.create();
@@ -93,5 +101,58 @@ public class MilePostFactoryTest {
         City city = milePost2.getCityMilePost().get();
         assertEquals(city.getName(), "Wikkedde");
         assertEquals(city.getTerrainType(), TerrainType.MAJOR);
+    }
+
+    @Test
+    public void validateEachRowOnMainMapHasCorrectNumberOfTerrainTypes() throws Exception {
+        //Arrange
+        Path expectedValuesPath = Paths.get("testData/ExpectedValuesRowData.json");
+        ObjectMapper objectMapper = new ObjectMapper();
+        JsonNode node = objectMapper.readTree(expectedValuesPath.toFile());
+        Table<Integer, TerrainType, Integer> expectedValues = HashBasedTable.create();
+        for (JsonNode childNode : node) {
+            int z = childNode.get("z").asInt();
+            for (TerrainType terrainType : TerrainType.values()) {
+                int number = childNode.get(terrainType.name()).asInt();
+                expectedValues.put(z, terrainType, number);
+            }
+        }
+
+        //Act
+        Set<HexagonCubeCoordinate> mapCoordinates = milePostFactory.getMapCoordinates();
+        Multimap<Integer, MilePost> milePostMap = ArrayListMultimap.create();
+        Table<Integer, TerrainType, Integer> actualValues = HashBasedTable.create();
+        for (HexagonCubeCoordinate cubeCoordinate : mapCoordinates) {
+            milePostMap.putAll(cubeCoordinate.getZ(), milePostFactory.createMilePost(cubeCoordinate));
+        }
+        for (Map.Entry<Integer, Collection<MilePost>> entry : milePostMap.asMap().entrySet()) {
+            int z = entry.getKey();
+            for (TerrainType terrainType : TerrainType.values()) {
+                actualValues.put(z, terrainType, 0);
+            }
+            Collection<MilePost> value = newTreeSet(entry.getValue());
+            for (MilePost milePost : value) {
+                TerrainType terrainType = milePost.getTerrainType();
+                actualValues.put(z, terrainType, actualValues.get(z, terrainType) + 1);
+            }
+        }
+
+        //Assert
+        for (Table.Cell<Integer, TerrainType, Integer> cell : expectedValues.cellSet()) {
+            int row = cell.getRowKey();
+            TerrainType terrainType = cell.getColumnKey();
+            int expected = cell.getValue();
+            int actual = actualValues.get(row, terrainType);
+            Set<String> errors = newHashSet();
+            try {
+                assertEquals(actual, expected, String.format("On row %d for terrain type %s", row, terrainType));
+            } catch (AssertionError ex) {
+                errors.add(ex.getMessage());
+            }
+            if (!errors.isEmpty()) {
+                System.out.println(Joiner.on(System.lineSeparator()).join(errors));
+                fail();
+            }
+        }
     }
 }
