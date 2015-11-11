@@ -49,4 +49,21 @@
   "MEDIUM" : 0,
   "MAJOR" : 0,
   "CITY_AND_PORT" : 0
+}, {
+  "z" : 31,
+  "ALPINE" : 0,
+  "CITY_AND_PORT" : 0,
+  "DESERT" : 0,
+  "FOREST" : 3,
+  "JUNGLE" : 21,
+  "MAJOR" : 0,
+  "MEDIUM" : 0,
+  "MOUNTAIN" : 4,
+  "PLAIN" : 9,
+  "PORT" : 0,
+  "SEA_POINT" : 26,
+  "SMALL" : 3,
+  "UNDERGROUND_ROCK" : 0,
+  "UNDERGROUND_ENTRANCE" : 0,
+  "VOLCANO" : 0
 }]
