@@ -106,7 +106,7 @@ public class MilePostFactoryTest {
     @Test
     public void validateEachRowOnMainMapHasCorrectNumberOfTerrainTypes() throws Exception {
         //Arrange
-        Path expectedValuesPath = Paths.get("testData/ExpectedValuesRowData.json");
+        Path expectedValuesPath = Paths.get("tstData/ExpectedValuesRowData.json");
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode node = objectMapper.readTree(expectedValuesPath.toFile());
         Table<Integer, TerrainType, Integer> expectedValues = HashBasedTable.create();
