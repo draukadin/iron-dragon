@@ -47,6 +47,7 @@ public class MilePostFactory {
         buildMilePosts(Paths.get("GameData/PlainMilePosts.json"), TerrainType.PLAIN);
         buildMilePosts(Paths.get("GameData/PortMilePosts.json"), TerrainType.PORT);
         buildMilePosts(Paths.get("GameData/UnderGroundEntranceMilePosts.json"), TerrainType.UNDERGROUND_ENTRANCE);
+        buildMilePosts(Paths.get("GameData/UnderGroundRockMilePosts.json"), TerrainType.UNDERGROUND_ROCK);
         buildMilePosts(Paths.get("GameData/VolcanoMilePosts.json"), TerrainType.VOLCANO);
         buildCityMilePosts();
     }

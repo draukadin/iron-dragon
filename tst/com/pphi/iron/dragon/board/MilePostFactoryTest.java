@@ -5,11 +5,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Joiner;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.HashBasedTable;
+import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Table;
 import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
 import com.pphi.iron.dragon.component.BasicMilePost;
 import com.pphi.iron.dragon.component.City;
+import com.pphi.iron.dragon.component.Country;
 import com.pphi.iron.dragon.component.TerrainType;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -39,7 +41,7 @@ public class MilePostFactoryTest {
     }
 
     @Test
-    public void getMapCoordinatesTest() throws Exception {
+    public void getMainMapCoordinatesTest() throws Exception {
         Set<HexagonCubeCoordinate> mapCoordinates = milePostFactory.getMapCoordinates();
         Multimap<Integer, MilePost> milePostMap = ArrayListMultimap.create();
         for (HexagonCubeCoordinate cubeCoordinate : mapCoordinates) {
@@ -57,6 +59,47 @@ public class MilePostFactoryTest {
             } else {
                 if (value.size() != 66) {
                     printRow(z, value, 66);
+                    count++;
+                }
+            }
+        }
+        System.out.println(String.format("%d errors found", count));
+        if (count > 0) {
+            fail("Rows without the correct number of mileposts were detected");
+        }
+    }
+
+    @Test
+    public void getSideMapTest() throws Exception {
+        Set<HexagonCubeCoordinate> mapCoordinates = milePostFactory.getMapCoordinates();
+        Multimap<Integer, MilePost> milePostMap = ArrayListMultimap.create();
+        for (HexagonCubeCoordinate cubeCoordinate : mapCoordinates) {
+            milePostMap.putAll(cubeCoordinate.getZ(), milePostFactory.createMilePost(cubeCoordinate));
+        }
+        int count = 0;
+        Multimap<Integer, MilePost> sideMapMilePosts = HashMultimap.create();
+        for (Map.Entry<Integer, Collection<MilePost>> entry : milePostMap.asMap().entrySet()) {
+            int z = entry.getKey();
+            Collection<MilePost> value = entry.getValue();
+            if (value.size() > 66) {
+                for (MilePost milePost : value) {
+                    if (milePost.getCountry() == Country.UNDERGROUND) {
+                        sideMapMilePosts.put(z, milePost);
+                    }
+                }
+            }
+        }
+        for (Map.Entry<Integer, Collection<MilePost>> entry : sideMapMilePosts.asMap().entrySet()) {
+            int z = entry.getKey();
+            Collection<MilePost> value = newTreeSet(entry.getValue());
+            if (z % 2 == 0) {
+                if (value.size() != 17) {
+                    printRow(z, value, 17);
+                    count++;
+                }
+            } else {
+                if (value.size() != 18) {
+                    printRow(z, value, 18);
                     count++;
                 }
             }
