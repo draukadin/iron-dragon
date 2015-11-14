@@ -14,11 +14,13 @@ import com.pphi.iron.dragon.component.City;
 import com.pphi.iron.dragon.component.Country;
 import com.pphi.iron.dragon.component.TerrainType;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -40,8 +42,9 @@ public class MilePostFactoryTest {
         milePostFactory = new MilePostFactory();
     }
 
+    @Parameters({ "rowToPrint"})
     @Test
-    public void getMainMapCoordinatesTest() throws Exception {
+    public void getMainMapCoordinatesTest(Integer rowToPrint) throws Exception {
         Set<HexagonCubeCoordinate> mapCoordinates = milePostFactory.getMapCoordinates();
         Multimap<Integer, MilePost> milePostMap = ArrayListMultimap.create();
         for (HexagonCubeCoordinate cubeCoordinate : mapCoordinates) {
@@ -62,10 +65,21 @@ public class MilePostFactoryTest {
                     count++;
                 }
             }
+            if (rowToPrint != null && rowToPrint.equals(z)) {
+                printMilePosts(entry.getValue());
+            }
         }
         System.out.println(String.format("%d errors found", count));
         if (count > 0) {
             fail("Rows without the correct number of mileposts were detected");
+        }
+    }
+
+    private void printMilePosts(Collection<MilePost> value) {
+        List<MilePost> sortedList = newArrayList(value);
+        Collections.sort(sortedList);
+        for (MilePost milePost : sortedList) {
+            System.out.println(milePost);
         }
     }
 
