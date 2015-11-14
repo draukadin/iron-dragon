@@ -109,7 +109,7 @@ public class MilePostFactory {
             }
         }
 
-        if (city != null && mainMapBasicMilePost != null) {
+        if (city != null && mainMapBasicMilePost != null && !city.getCountry().equals(Country.UNDERGROUND)) {
             terrainType = TerrainType.CITY_AND_PORT;
             country = city.getCountry();
         } else if (mainMapBasicMilePost != null) {
