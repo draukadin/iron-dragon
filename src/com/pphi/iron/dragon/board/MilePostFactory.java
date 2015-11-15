@@ -1,6 +1,7 @@
 package com.pphi.iron.dragon.board;
 
 import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
 import com.pphi.hexagon.neighbors.PointyTopCubeNeighbors;
@@ -21,7 +22,6 @@ import java.util.Map;
 import java.util.Set;
 
 import static com.google.common.collect.Lists.newArrayList;
-import static com.google.common.collect.Maps.newHashMap;
 import static com.google.common.collect.Sets.newHashSet;
 import static com.pphi.iron.dragon.component.Country.UNDERGROUND;
 
@@ -30,7 +30,7 @@ public class MilePostFactory {
     private Set<HexagonCubeCoordinate> mapCoordinates;
 
     private Multimap<HexagonCubeCoordinate, BasicMilePost> basicMilePostMultimap;
-    private Map<HexagonCubeCoordinate, City> cityMilePosts;
+    private Multimap<HexagonCubeCoordinate, City> cityMilePosts;
 
     private IconFactory iconFactory;
 
@@ -70,7 +70,7 @@ public class MilePostFactory {
     }
 
     private void buildCityMilePosts() {
-        cityMilePosts = newHashMap();
+        cityMilePosts = HashMultimap.create();
         for (City city : City.values()) {
             if (city.getTerrainType().equals(TerrainType.MAJOR)) {
                 HexagonCubeCoordinate cityCenter = city.getCubeCoordinate();
@@ -93,13 +93,15 @@ public class MilePostFactory {
     public Collection<MilePost> createMilePost(HexagonCubeCoordinate coordinate) {
         List<MilePost> milePosts = newArrayList();
         Collection<BasicMilePost> basicMilePosts = basicMilePostMultimap.get(coordinate);
-        City city = cityMilePosts.get(coordinate);
+        Collection<City> cities = cityMilePosts.get(coordinate);
 
         Country country;
         TerrainType terrainType;
 
         BasicMilePost mainMapBasicMilePost = null;
         BasicMilePost undergroundMapMilePost = null;
+        City mainMapCity = null;
+        City underGroundCity = null;
 
         for (BasicMilePost basicMilePost : basicMilePosts) {
             if (basicMilePost.getCountry().equals(UNDERGROUND)) {
@@ -109,15 +111,22 @@ public class MilePostFactory {
             }
         }
 
-        if (city != null && mainMapBasicMilePost != null && !city.getCountry().equals(Country.UNDERGROUND)) {
+        for (City city : cities) {
+            if (city.getCountry().equals(UNDERGROUND)) {
+                underGroundCity = city;
+            } else {
+                mainMapCity = city;
+            }
+        }
+        if (mainMapCity != null && mainMapBasicMilePost != null) {
             terrainType = TerrainType.CITY_AND_PORT;
-            country = city.getCountry();
+            country = mainMapCity.getCountry();
         } else if (mainMapBasicMilePost != null) {
             terrainType = mainMapBasicMilePost.getTerrainType();
             country = mainMapBasicMilePost.getCountry();
-        } else if (city != null) {
-            terrainType = city.getTerrainType();
-            country = city.getCountry();
+        } else if (mainMapCity != null) {
+            terrainType = mainMapCity.getTerrainType();
+            country = mainMapCity.getCountry();
         } else {
             throw new IllegalStateException("Could not meet the conditions to set the country and terrain " +
                     "type values: Both the City and basic mile post were null for coordinate " + coordinate.toString());
@@ -128,14 +137,14 @@ public class MilePostFactory {
                 .builder(coordinate)
                 .terrainType(terrainType)
                 .milePost(mainMapBasicMilePost)
-                .cityMilePost(city)
+                .cityMilePost(mainMapCity)
                 .icon(icon)
                 .country(country)
                 .build();
         milePosts.add(mainMapMilePost);
 
-        if (undergroundMapMilePost != null || (city != null && city.getCountry().equals(UNDERGROUND))) {
-            milePosts.add(createUndergroundMilePost(coordinate, undergroundMapMilePost, city));
+        if (undergroundMapMilePost != null || (underGroundCity != null)) {
+            milePosts.add(createUndergroundMilePost(coordinate, undergroundMapMilePost, underGroundCity));
         }
         return milePosts;
     }
