@@ -2,7 +2,6 @@ package com.pphi.iron.dragon.board;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.base.Joiner;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.HashMultimap;
@@ -24,9 +23,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 import static com.google.common.collect.Lists.newArrayList;
-import static com.google.common.collect.Sets.newHashSet;
 import static com.google.common.collect.Sets.newTreeSet;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
@@ -187,7 +187,7 @@ public class MilePostFactoryTest {
             for (TerrainType terrainType : TerrainType.values()) {
                 actualValues.put(z, terrainType, 0);
             }
-            Collection<MilePost> value = newTreeSet(entry.getValue());
+            Collection<MilePost> value = entry.getValue();
             for (MilePost milePost : value) {
                 TerrainType terrainType = milePost.getTerrainType();
                 actualValues.put(z, terrainType, actualValues.get(z, terrainType) + 1);
@@ -195,21 +195,24 @@ public class MilePostFactoryTest {
         }
 
         //Assert
+        SortedMap<Integer, String> errors = new TreeMap<>();
         for (Table.Cell<Integer, TerrainType, Integer> cell : expectedValues.cellSet()) {
             int row = cell.getRowKey();
             TerrainType terrainType = cell.getColumnKey();
             int expected = cell.getValue();
             int actual = actualValues.get(row, terrainType);
-            Set<String> errors = newHashSet();
             try {
                 assertEquals(actual, expected, String.format("On row %d for terrain type %s", row, terrainType));
             } catch (AssertionError ex) {
-                errors.add(ex.getMessage());
+                errors.put(row, ex.getMessage());
             }
-            if (!errors.isEmpty()) {
-                System.out.println(Joiner.on(System.lineSeparator()).join(errors));
-                fail();
+        }
+        System.out.println(String.format("Number of Errors: %d", errors.size()));
+        if (!errors.isEmpty()) {
+            for (Map.Entry<Integer, String> entry : errors.entrySet()) {
+                System.out.println(entry.getValue());
             }
+            fail();
         }
     }
 }
