@@ -656,7 +656,7 @@
 }, {
   "z" : -9,
   "first": 16,
-  "second": 26,
+  "second": 16,
   "country": "BRIGHT"
 }, {
   "z" : -10,
@@ -743,11 +743,6 @@
   "first": -2,
   "second": -2,
   "country": "GLYTH_GAMEL"
-}, {
-  "z" : -5,
-  "first" : -2,
-  "second" : -2,
-  "country" : "GLYTH_GAMEL"
 }, {
   "z" : -5,
   "first": -6,

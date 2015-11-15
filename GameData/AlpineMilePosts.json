@@ -149,6 +149,11 @@
   "second" : -23,
   "country" : "IRON_HOLM"
 }, {
+  "z" : -15,
+  "first" : -15,
+  "second" : -15,
+  "country" : "KOLAND"
+}, {
   "z" : -19,
   "first" : -8,
   "second" : -8,
@@ -540,8 +545,8 @@
   "country": "GLYTH_GAMEL"
 }, {
   "z": -5,
-  "first": -1,
-  "second": -1,
+  "first": -2,
+  "second": -2,
   "country": "GLYTH_GAMEL"
 }, {
   "z": -6,
