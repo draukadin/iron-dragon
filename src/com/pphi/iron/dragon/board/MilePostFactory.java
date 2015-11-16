@@ -20,12 +20,15 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Logger;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Sets.newHashSet;
 import static com.pphi.iron.dragon.component.Country.UNDERGROUND;
 
 public class MilePostFactory {
+
+    private Logger LOGGER = Logger.getLogger("MilePostFactory");
 
     private Set<HexagonCubeCoordinate> mapCoordinates;
 
@@ -95,8 +98,8 @@ public class MilePostFactory {
         Collection<BasicMilePost> basicMilePosts = basicMilePostMultimap.get(coordinate);
         Collection<City> cities = cityMilePosts.get(coordinate);
 
-        Country country;
-        TerrainType terrainType;
+        Country country = null;
+        TerrainType terrainType = null;
 
         BasicMilePost mainMapBasicMilePost = null;
         BasicMilePost undergroundMapMilePost = null;
@@ -128,23 +131,25 @@ public class MilePostFactory {
             terrainType = mainMapCity.getTerrainType();
             country = mainMapCity.getCountry();
         } else {
-            throw new IllegalStateException("Could not meet the conditions to set the country and terrain " +
-                    "type values: Both the City and basic mile post were null for coordinate " + coordinate.toString());
+            String message = String.format("%s is outside the boundaries off the map", coordinate);
+            LOGGER.warning(message);
         }
 
-        Icon icon = iconFactory.getIcon(terrainType);
-        MilePost mainMapMilePost = MilePost
-                .builder(coordinate)
-                .terrainType(terrainType)
-                .milePost(mainMapBasicMilePost)
-                .cityMilePost(mainMapCity)
-                .icon(icon)
-                .country(country)
-                .build();
-        milePosts.add(mainMapMilePost);
+        if (null != terrainType && null != country) {
+            Icon icon = iconFactory.getIcon(terrainType);
+            MilePost mainMapMilePost = MilePost
+                    .builder(coordinate)
+                    .terrainType(terrainType)
+                    .milePost(mainMapBasicMilePost)
+                    .cityMilePost(mainMapCity)
+                    .icon(icon)
+                    .country(country)
+                    .build();
+            milePosts.add(mainMapMilePost);
 
-        if (undergroundMapMilePost != null || (underGroundCity != null)) {
-            milePosts.add(createUndergroundMilePost(coordinate, undergroundMapMilePost, underGroundCity));
+            if (undergroundMapMilePost != null || (underGroundCity != null)) {
+                milePosts.add(createUndergroundMilePost(coordinate, undergroundMapMilePost, underGroundCity));
+            }
         }
         return milePosts;
     }
