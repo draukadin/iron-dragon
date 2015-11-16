@@ -6,10 +6,10 @@ import edu.uci.ics.jung.graph.SortedSparseMultigraph;
 import java.util.Collection;
 import java.util.Set;
 
-public class BoardGraph extends SortedSparseMultigraph<MilePost, Link> {
+public class BoardGraph extends SortedSparseMultigraph<MilePost, MilePostLink> {
 
     private static final Set<MilePost> EMPTY_NODES = ImmutableSet.of();
-    private static final Set<Link> EMPTY_EDGES = ImmutableSet.of();
+    private static final Set<MilePostLink> EMPTY_EDGES = ImmutableSet.of();
 
     @Override
     public Collection<MilePost> getPredecessors(MilePost vertex) {
@@ -39,8 +39,8 @@ public class BoardGraph extends SortedSparseMultigraph<MilePost, Link> {
     }
 
     @Override
-    public Collection<Link> getIncidentEdges(MilePost vertex) {
-        Collection<Link> incidentEdges = super.getIncidentEdges(vertex);
+    public Collection<MilePostLink> getIncidentEdges(MilePost vertex) {
+        Collection<MilePostLink> incidentEdges = super.getIncidentEdges(vertex);
         if (incidentEdges == null) {
             incidentEdges = EMPTY_EDGES;
         }
@@ -48,8 +48,8 @@ public class BoardGraph extends SortedSparseMultigraph<MilePost, Link> {
     }
 
     @Override
-    public Collection<Link> getInEdges(MilePost vertex) {
-        Collection<Link> inEdges = super.getInEdges(vertex);
+    public Collection<MilePostLink> getInEdges(MilePost vertex) {
+        Collection<MilePostLink> inEdges = super.getInEdges(vertex);
         if (inEdges == null) {
             inEdges = EMPTY_EDGES;
         }
@@ -57,8 +57,8 @@ public class BoardGraph extends SortedSparseMultigraph<MilePost, Link> {
     }
 
     @Override
-    public Collection<Link> getOutEdges(MilePost vertex) {
-        Collection<Link> outEdges = super.getOutEdges(vertex);
+    public Collection<MilePostLink> getOutEdges(MilePost vertex) {
+        Collection<MilePostLink> outEdges = super.getOutEdges(vertex);
         if (outEdges == null) {
             outEdges = EMPTY_EDGES;
         }
