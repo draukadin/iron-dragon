@@ -21,8 +21,6 @@ import static org.testng.Assert.assertTrue;
 
 public class MilePostLinkFactoryTest {
 
-
-
     private MilePostFactory milePostFactory;
     private MilePostLinkFactory milePostLinkFactory;
 
@@ -30,7 +28,6 @@ public class MilePostLinkFactoryTest {
     public void setup() throws Exception {
         milePostFactory = new MilePostFactory();
         milePostLinkFactory = new MilePostLinkFactory();
-
     }
 
     @Test(dataProvider = "portCoordinates", dataProviderClass = CoordinateDataProvider.class)
@@ -56,6 +53,26 @@ public class MilePostLinkFactoryTest {
                 }
             }
         }
+    }
+
+    @Test(dataProvider = "seaPointCoordinates", dataProviderClass = CoordinateDataProvider.class)
+    public void testSeaPointsAreAllConnectedToEachOther(HexagonCubeCoordinate seaPointCoordinate) {
+        Collection<MilePost> milePosts = milePostFactory.createMilePost(seaPointCoordinate);
+        MilePost oceanMilePost = filterOutUndergroundMilePosts(milePosts);
+        List<MilePost> neighborMilePosts = getOceanNeighbors(seaPointCoordinate);
+        for (MilePost neighborMilePost : neighborMilePosts) {
+            assertTrue(milePostLinkFactory.createLink(oceanMilePost, neighborMilePost).isPresent());
+        }
+    }
+
+    private MilePost filterOutUndergroundMilePosts(Collection<MilePost> milePosts) {
+        MilePost oceanMilePost = null;
+        for (MilePost milePost : milePosts) {
+            if (milePost.getCountry() != Country.UNDERGROUND) {
+                oceanMilePost = milePost;
+            }
+        }
+        return oceanMilePost;
     }
 
     private Optional<MilePost> getCoastalSeaPointMilePost(Collection<MilePost> milePosts) {
@@ -92,6 +109,19 @@ public class MilePostLinkFactoryTest {
             for (MilePost milePost : milePostFactory.createMilePost(neighbor)) {
                 if (milePost.getCountry() != Country.UNDERGROUND && milePost.getTerrainType() != PORT
                         && milePost.getTerrainType() != CITY_AND_PORT) {
+                    neighborMilePosts.add(milePost);
+                }
+            }
+        }
+        return neighborMilePosts;
+    }
+
+    private List<MilePost> getOceanNeighbors(HexagonCubeCoordinate seaPointCoordinate) {
+        List<HexagonCubeCoordinate> neighbors = PointyTopCubeNeighbors.getNeighbors(seaPointCoordinate);
+        List<MilePost> neighborMilePosts = newArrayList();
+        for (HexagonCubeCoordinate neighbor : neighbors) {
+            for (MilePost milePost : milePostFactory.createMilePost(neighbor)) {
+                if (milePost.getTerrainType() == SEA_POINT) {
                     neighborMilePosts.add(milePost);
                 }
             }
