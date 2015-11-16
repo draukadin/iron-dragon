@@ -1,0 +1,178 @@
+[{
+  "name" : "Kut",
+  "coordinates" : [
+    {
+      "origin" : {"x" : -10, "z" : -17},
+      "crossing" : ["E", "NE"]
+    }, {
+      "origin" : {"x" : -10, "z" : -18},
+      "crossing" : ["E"]
+    }, {
+      "origin" : {"x" : -9, "z" : -19},
+      "crossing" : ["SE", "E"]
+    }]
+}, {
+  "name" : "Klegar",
+  "coordinates" : [{
+    "origin" : {"x" : -7, "z" : -20},
+    "crossing" : ["SE", "E"]
+  }, {
+    "origin" : {"x" : -6, "z" : -21},
+    "crossing" : ["SE"]
+  }, {
+    "origin" : {"x" : -5, "z" : -21},
+    "crossing" : ["SW", "SE", "E"]
+  }, {
+    "origin" : {"x" : -4, "z" : -22},
+    "crossing" : ["SE"]
+  }, {
+    "origin" : {"x" : -3, "z" : -22},
+    "crossing" : ["SW"]
+  }, {
+    "origin" : {"x" : -3, "z" : -21},
+    "crossing" : ["W", "SW"]
+  }, {
+    "origin" : {"x" : -3, "z" : -20},
+    "crossing" : ["W", "SW", "SE"]
+  }, {
+    "origin" : {"x" : -2, "z" : -20},
+    "crossing" : ["SW", "SE", "E"]
+  }, {
+    "origin" : {"x" : -1, "z" : -21},
+    "crossing" : ["SE", "E"]
+  }, {
+    "origin" : {"x" : 0, "z" : -22},
+    "crossing" : ["SE", "E"]
+  }, {
+    "origin" : {"x" : 1, "z" : -23},
+    "crossing" : ["SE"]
+  }]
+}, {
+  "name" : "Nairnkyl",
+  "coordinates" : [{
+      "origin" : {"x" : -3, "z" : -14},
+      "crossing" : ["W", "NW"]
+    }, {
+      "origin" : {"x" : -2, "z" : -15},
+      "crossing" : ["W", "NW", "NE"]
+    }, {
+      "origin" : {"x" : -3, "z" : -15},
+      "crossing" : ["NW"]
+    }, {
+      "origin" : {"x" : 0, "z" : -16},
+      "crossing" : ["W", "NW", "NE", "E"]
+    }, {
+      "origin" : {"x" : 1, "z" : -16},
+      "crossing" : ["SW", "SE"]
+    }, {
+      "origin" : {"x" : 2, "z" : -14},
+      "crossing" : ["W", "SW"]
+    }]
+}, {
+  "name" : "Nord",
+  "coordinates" : [{
+    "origin" : {"x" : 5, "z" : -17},
+    "crossing" : ["SE", "E"]
+  }, {
+    "origin" : {"x" : 6, "z" : -18},
+    "crossing" : ["SE", "E"]
+  }, {
+    "origin" : {"x" : 7, "z" : -18},
+    "crossing" : ["NW", "NE"]
+  }, {
+    "origin" : {"x" : 8, "z" : -19},
+    "crossing" : ["SE", "E"]
+  }, {
+    "origin" : {"x" : 9, "z" : -20},
+    "crossing" : ["SE", "E"]
+  }]
+}, {
+  "name" : "Nestor",
+  "coordinates" : [{
+    "origin" : {"x" : 4, "z" : -11},
+    "crossing" : ["W", "NW"]
+  }, {
+    "origin" : {"x" : 5, "z" : -12},
+    "crossing" : ["W", "NW"]
+  }, {
+    "origin" : {"x" : 6, "z" : -13},
+    "crossing" : ["W", "NW", "NE"]
+  }, {
+    "origin" : {"x" : 7, "z" : -13},
+    "crossing" : ["NW", "NE", "E"]
+  }, {
+    "origin" : {"x" : 8, "z" : -13},
+    "crossing" : ["SW", "SW"]
+  }, {
+    "origin" : {"x" : 9, "z" : -13},
+    "crossing" : ["SW", "SW"]
+  }, {
+    "origin" : {"x" : 10, "z" : -13},
+    "crossing" : ["SW", "SW", "E"]
+  }, {
+    "origin" : {"x" : 11, "z" : -14},
+    "crossing" : ["SE", "E"]
+  }, {
+    "origin" : {"x" : 12, "z" : -15},
+    "crossing" : ["SE"]
+  }]
+}, {
+  "name" : "Green",
+  "coordinates" : [{
+    "origin" : {"x" : -2, "z" : -3},
+    "crossing" : ["E", "SE"]
+  }, {
+    "origin" : {"x" : -3, "z" : -2},
+    "crossing" : ["E", "SE", "SW"]
+  }, {
+    "origin" : {"x" : -4, "z" : -2},
+    "crossing" : ["SE", "SW"]
+  }, {
+    "origin" : {"x" : -5, "z" : -2},
+    "crossing" : ["SE", "SW"]
+  }, {
+    "origin" : {"x" : -6, "z" : -2},
+    "crossing" : ["SE", "SW"]
+  }, {
+    "origin" : {"x" : -7, "z" : -2},
+    "crossing" : ["SE", "SW", "W"]
+  }, {
+    "origin" : {"x" : -7, "z" : -3},
+    "crossing" : ["SW", "W"]
+  }, {
+    "origin" : {"x" : -8, "z" : -3},
+    "crossing" : ["NE", "NW"]
+  }, {
+    "origin" : {"x" : -9, "z" : -3},
+    "crossing" : ["NE", "NW"]
+  }, {
+    "origin" : {"x" : -10, "z" : -3},
+    "crossing" : ["NE", "NW"]
+  }, {
+    "origin" : {"x" : -10, "z" : -4},
+    "crossing" : ["SW", "W"]
+  }, {
+    "origin" : {"x" : -11, "z" : -4},
+    "crossing" : ["NE"]
+  }]
+}, {
+    "name": "Oskall",
+    "coordinates": [{
+      "origin" : {"x" : -7, "z" : 0},
+      "crossing" : ["SE", "SW"]
+    }, {
+      "origin" : {"x" : -8, "z" : 0},
+      "crossing" : ["SE", "SW"]
+    }, {
+      "origin" : {"x" : -9, "z" : 1},
+      "crossing" : ["NW", "W"]
+    }, {
+      "origin" : {"x" : -10, "z" : 2},
+      "crossing" : ["NW", "W"]
+    }, {
+      "origin" : {"x" : -11, "z" : 3},
+      "crossing" : ["NW"]
+    }]
+  }
+]
+
