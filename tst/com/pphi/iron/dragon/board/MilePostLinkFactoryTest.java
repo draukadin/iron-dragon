@@ -4,7 +4,6 @@ import com.google.common.base.Optional;
 import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
 import com.pphi.hexagon.neighbors.PointyTopCubeNeighbors;
 import com.pphi.iron.dragon.CoordinateDataProvider;
-import com.pphi.iron.dragon.component.Country;
 import com.pphi.iron.dragon.component.TerrainType;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -13,9 +12,11 @@ import java.util.Collection;
 import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;
+import static com.pphi.iron.dragon.component.Country.UNDERGROUND;
 import static com.pphi.iron.dragon.component.TerrainType.CITY_AND_PORT;
 import static com.pphi.iron.dragon.component.TerrainType.PORT;
 import static com.pphi.iron.dragon.component.TerrainType.SEA_POINT;
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
@@ -65,10 +66,79 @@ public class MilePostLinkFactoryTest {
         }
     }
 
+    @Test(dataProvider = "landCoordinates", dataProviderClass = CoordinateDataProvider.class)
+    public void testLandPointsAreConnectedToEachOther(HexagonCubeCoordinate landCoordinate) {
+        Collection<MilePost> milePosts = milePostFactory.createMilePost(landCoordinate);
+        MilePost undergroundMilePost = null;
+        MilePost landMilePost = null;
+        for (MilePost milePost : milePosts) {
+            if (milePost.getCountry().equals(UNDERGROUND)) {
+                undergroundMilePost = milePost;
+            } else if (milePost.getTerrainType() != SEA_POINT){
+                landMilePost = milePost;
+            }
+        }
+        List<MilePost> undergroundNeighbors = getUndergroundNeighbors(undergroundMilePost);
+        List<MilePost> landNeighbors = getLandNeighbors(landMilePost);
+        for (MilePost neighborMilePost : undergroundNeighbors) {
+            assertTrue(milePostLinkFactory.createLink(undergroundMilePost, neighborMilePost).isPresent());
+        }
+        for (MilePost neighborMilePost : landNeighbors) {
+            assertTrue(milePostLinkFactory.createLink(landMilePost, neighborMilePost).isPresent());
+        }
+    }
+
+    @Test(dataProvider = "undergroundEntranceCoordinates", dataProviderClass = CoordinateDataProvider.class)
+    public void testUndergroundEntrancesOnMainMapConnectToEntranceOnSideMap(HexagonCubeCoordinate coordinate) {
+        Collection<MilePost> milePosts = milePostFactory.createMilePost(coordinate);
+        assertEquals(2, milePosts.size());
+        MilePost undergroundEntrance = null;
+        MilePost mainMapEntrance = null;
+        for (MilePost milePost : milePosts) {
+            if (milePost.getCountry() == UNDERGROUND) {
+                undergroundEntrance = milePost;
+            } else {
+                mainMapEntrance = milePost;
+            }
+        }
+        assertTrue(milePostLinkFactory.createLink(undergroundEntrance, mainMapEntrance).isPresent());
+    }
+
+    private List<MilePost> getUndergroundNeighbors(MilePost undergroundMilePost) {
+        List<MilePost> neighborMilePosts = newArrayList();
+        if (undergroundMilePost != null) {
+            List<HexagonCubeCoordinate> neighbors = PointyTopCubeNeighbors.getNeighbors(
+                    undergroundMilePost.getCubeCoordinate());
+            for (HexagonCubeCoordinate neighbor : neighbors) {
+                for (MilePost milePost : milePostFactory.createMilePost(neighbor)) {
+                    if (milePost.getTerrainType() != SEA_POINT && milePost.getCountry() == UNDERGROUND) {
+                        neighborMilePosts.add(milePost);
+                    }
+                }
+            }
+        }
+        return neighborMilePosts;
+    }
+
+    private List<MilePost> getLandNeighbors(MilePost landMilePost) {
+        List<MilePost> neighborMilePosts = newArrayList();
+        if (landMilePost != null) {
+            List<HexagonCubeCoordinate> neighbors = PointyTopCubeNeighbors.getNeighbors(landMilePost.getCubeCoordinate());
+            for (HexagonCubeCoordinate neighbor : neighbors) {
+                for (MilePost milePost : milePostFactory.createMilePost(neighbor)) {
+                    if (milePost.getTerrainType() != SEA_POINT && milePost.getCountry() != UNDERGROUND) {
+                        neighborMilePosts.add(milePost);
+                    }
+                }
+            }
+        }
+        return neighborMilePosts;
+    }
+
     private MilePost filterOutUndergroundMilePosts(Collection<MilePost> milePosts) {
         MilePost oceanMilePost = null;
         for (MilePost milePost : milePosts) {
-            if (milePost.getCountry() != Country.UNDERGROUND) {
+            if (milePost.getCountry() != UNDERGROUND) {
                 oceanMilePost = milePost;
             }
         }
@@ -107,7 +177,7 @@ public class MilePostLinkFactoryTest {
         List<MilePost> neighborMilePosts = newArrayList();
         for (HexagonCubeCoordinate neighbor : neighbors) {
             for (MilePost milePost : milePostFactory.createMilePost(neighbor)) {
-                if (milePost.getCountry() != Country.UNDERGROUND && milePost.getTerrainType() != PORT
+                if (milePost.getCountry() != UNDERGROUND && milePost.getTerrainType() != PORT
                         && milePost.getTerrainType() != CITY_AND_PORT) {
                     neighborMilePosts.add(milePost);
                 }
