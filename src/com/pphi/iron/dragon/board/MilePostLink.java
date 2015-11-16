@@ -1,0 +1,109 @@
+package com.pphi.iron.dragon.board;
+
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
+import com.google.common.base.Optional;
+import com.google.common.collect.ComparisonChain;
+
+import java.util.UUID;
+
+public class MilePostLink implements Comparable<MilePostLink> {
+
+    private String milePostLinkId;
+    private boolean border;
+    private boolean inlet;
+    private boolean river;
+
+    private MilePostLink(Builder builder) {
+        milePostLinkId = builder.milePostLinkId;
+        border = builder.border;
+        inlet = builder.inlet;
+        river = builder.river;
+    }
+
+    public boolean isBorder() {
+        return border;
+    }
+
+    public boolean isInlet() {
+        return inlet;
+    }
+
+    public boolean isRiver() {
+        return river;
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static final class Builder {
+        private String milePostLinkId = UUID.randomUUID().toString();
+        private boolean border = false;
+        private boolean inlet = false;
+        private boolean river = false;
+
+        private Builder() {}
+
+        public Builder border(boolean val) {
+            border = val;
+            return this;
+        }
+
+        public Builder inlet(boolean val) {
+            inlet = val;
+            return this;
+        }
+
+        public Builder river(boolean val) {
+            river = val;
+            return this;
+        }
+
+        public Optional<MilePostLink> build() {
+            return Optional.of(new MilePostLink(this));
+        }
+    }
+    @Override
+    public int compareTo(MilePostLink o) {
+        return ComparisonChain
+                .start()
+                .compare(milePostLinkId, o.milePostLinkId)
+                .compare(border, o.border)
+                .compare(inlet, o.inlet)
+                .compare(river, o.river)
+                .result();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        MilePostLink that = (MilePostLink) o;
+
+        return Objects.equal(this.milePostLinkId, that.milePostLinkId)
+                && Objects.equal(this.border, that.border)
+                && Objects.equal(this.inlet, that.inlet)
+                && Objects.equal(this.river, that.river);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(milePostLinkId, border, inlet, river);
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("milePostLinkId", milePostLinkId)
+                .add("border", border)
+                .add("inlet", inlet)
+                .add("river", river)
+                .toString();
+    }
+}
