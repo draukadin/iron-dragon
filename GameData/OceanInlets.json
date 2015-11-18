@@ -1,1 +1,63 @@
-[]
+[
+  {
+    "name" : "ocean-inlet",
+    "coordinates" : [{
+      "origin" : {"x" : 18, "z" : -22},
+      "crossing" : ["W", "SW"]
+    }, {
+      "origin" : {"x" : 20, "z" : -20},
+      "crossing" : ["W", "NW"]
+    }, {
+      "origin" : {"x" : 19, "z" : -19},
+      "crossing" : ["NW"]
+    }, {
+      "origin" : {"x" : 31, "z" : -20},
+      "crossing" : ["W", "NW"]
+    }, {
+      "origin" : {"x" : 30, "z" : -19},
+      "crossing" : ["W", "NW"]
+    }, {
+      "origin" : {"x" : 29, "z" : -18},
+      "crossing" : ["NW"]
+    }, {
+      "origin" : {"x" : 29, "z" : -17},
+      "crossing" : ["SW", "SE"]
+    }, {
+      "origin" : {"x" : 28, "z" : "17"},
+      "crossing" : ["SE"]
+    }, {
+      "origin" : {"x" : 35, "z" : -11},
+      "crossing" : ["W", "NW"]
+    }, {
+      "origin" : {"x" : 34, "z" : -10},
+      "crossing" : ["NW"]
+    }, {
+      "origin" : {"x" : 34, "z" : -13},
+      "crossing" : ["NW"]
+    }, {
+      "origin" : {"x" : 33, "z" : -13},
+      "crossing" : ["NE", "NW", "W"]
+    }, {
+      "origin" : {"x" : 32, "z" : -12},
+      "crossing" : ["W", "NW"]
+    }, {
+      "origin" : {"x" : 31, "z" : -14},
+      "crossing" : ["W"]
+    }, {
+      "origin" : {"x" : 30, "z" : -12},
+      "crossing" : ["W"]
+    }, {
+      "origin" : {"x" : 15, "z" : -15},
+      "crossing" : ["NW", "W"]
+    }, {
+      "origin" : {"x" : 14, "z" : -4},
+      "crossing" : ["NW"]
+    }, {
+      "origin" : {"x" : -2, "z" : 15},
+      "crossing" : ["NW", "NE"]
+    }, {
+      "origin" : {"x" : -2, "z" : 16},
+      "crossing" : ["SE", "E"]
+    }]
+  }
+]
