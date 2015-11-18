@@ -95,7 +95,7 @@ public class RiverDataTest {
             for (String errorMessage : errors) {
                 System.out.println(errorMessage);
             }
-            fail();
+            fail(String.format("Found %d rivers with errors", errors.size()));
         }
     }
 }
