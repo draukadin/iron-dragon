@@ -1,14 +1,14 @@
 package com.pphi.iron.dragon.component;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
+
 import com.google.common.collect.ImmutableList;
 import com.iron.dragon.exceptions.UnsupportedEnumException;
 import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNotNull;
-import static org.testng.Assert.assertTrue;
 
 public class CityTests {
 

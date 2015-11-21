@@ -1,16 +1,8 @@
 package com.pphi.iron.dragon.board;
 
-import com.google.common.collect.ArrayListMultimap;
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
-import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
-import com.pphi.hexagon.neighbors.PointyTopCubeNeighbors;
-import com.pphi.iron.dragon.component.BasicMilePost;
-import com.pphi.iron.dragon.component.City;
-import com.pphi.iron.dragon.component.Country;
-import com.pphi.iron.dragon.component.TerrainType;
-import com.pphi.iron.dragon.util.CoordinateDeserializationUtil;
-import edu.uci.ics.jung.graph.util.Pair;
+import static com.google.common.collect.Lists.newArrayList;
+import static com.google.common.collect.Sets.newHashSet;
+import static com.pphi.iron.dragon.component.Country.UNDERGROUND;
 
 import javax.swing.Icon;
 import java.io.IOException;
@@ -22,13 +14,24 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
 
-import static com.google.common.collect.Lists.newArrayList;
-import static com.google.common.collect.Sets.newHashSet;
-import static com.pphi.iron.dragon.component.Country.UNDERGROUND;
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
+import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
+import com.pphi.hexagon.neighbors.PointyTopCubeNeighbors;
+import com.pphi.hexagon.util.CoordinateUtil;
+import com.pphi.iron.dragon.component.BasicMilePost;
+import com.pphi.iron.dragon.component.City;
+import com.pphi.iron.dragon.component.Country;
+import com.pphi.iron.dragon.component.TerrainType;
+import com.pphi.iron.dragon.util.CoordinateDeserializationUtil;
+import edu.uci.ics.jung.graph.util.Pair;
 
 public class MilePostFactory {
 
-    private Logger LOGGER = Logger.getLogger("MilePostFactory");
+    private static final int SHIFT_FACTOR = -30;
+
+    private static final Logger LOGGER = Logger.getLogger("MilePostFactory");
 
     private Set<HexagonCubeCoordinate> mapCoordinates;
 
@@ -63,7 +66,11 @@ public class MilePostFactory {
                 Pair<Integer> xCords = milePostJson.getPair();
                 Country country = milePostJson.getCountry();
                 for (int i = xCords.getFirst(); i <= xCords.getSecond(); i++) {
-                    BasicMilePost basicMilePost = new BasicMilePost(i, z, terrainType, country);
+                    int x = i;
+                    if (country.equals(UNDERGROUND)) {
+                        x = i + SHIFT_FACTOR;
+                    }
+                    BasicMilePost basicMilePost = new BasicMilePost(x, z, terrainType, country);
                     HexagonCubeCoordinate coord = basicMilePost.getCubeCoordinate();
                     mapCoordinates.add(coord);
                     basicMilePostMultimap.put(coord, basicMilePost);
@@ -75,8 +82,13 @@ public class MilePostFactory {
     private void buildCityMilePosts() {
         cityMilePosts = HashMultimap.create();
         for (City city : City.values()) {
+            HexagonCubeCoordinate cityCenter;
+            if (city.getCountry().equals(UNDERGROUND)) {
+                cityCenter = shiftXAxisCoordinate(city.getCubeCoordinate());
+            } else {
+                cityCenter = city.getCubeCoordinate();
+            }
             if (city.getTerrainType().equals(TerrainType.MAJOR)) {
-                HexagonCubeCoordinate cityCenter = city.getCubeCoordinate();
                 List<HexagonCubeCoordinate> neighbors = PointyTopCubeNeighbors.getNeighbors(cityCenter);
                 mapCoordinates.add(cityCenter);
                 mapCoordinates.addAll(neighbors);
@@ -84,13 +96,17 @@ public class MilePostFactory {
                     cityMilePosts.put(neighbor, city);
                 }
             }
-            mapCoordinates.add(city.getCubeCoordinate());
-            cityMilePosts.put(city.getCubeCoordinate(), city);
+            mapCoordinates.add(cityCenter);
+            cityMilePosts.put(cityCenter, city);
         }
     }
 
-    public Set<HexagonCubeCoordinate> getMapCoordinates() {
+    Set<HexagonCubeCoordinate> getMapCoordinates() {
         return mapCoordinates;
+    }
+
+    public boolean isCoordinateValid(HexagonCubeCoordinate coordinate) {
+        return mapCoordinates.contains(coordinate);
     }
 
     public Collection<MilePost> createMilePost(HexagonCubeCoordinate coordinate) {
@@ -131,8 +147,8 @@ public class MilePostFactory {
             terrainType = mainMapCity.getTerrainType();
             country = mainMapCity.getCountry();
         } else {
-            String message = String.format("%s is outside the boundaries off the map", coordinate);
-            LOGGER.warning(message);
+            String message = String.format("%s is not on the main map", coordinate);
+            LOGGER.finest(message);
         }
 
         if (null != terrainType && null != country) {
@@ -147,9 +163,9 @@ public class MilePostFactory {
                     .build();
             milePosts.add(mainMapMilePost);
 
-            if (undergroundMapMilePost != null || (underGroundCity != null)) {
-                milePosts.add(createUndergroundMilePost(coordinate, undergroundMapMilePost, underGroundCity));
-            }
+        }
+        if (undergroundMapMilePost != null || (underGroundCity != null)) {
+            milePosts.add(createUndergroundMilePost(coordinate, undergroundMapMilePost, underGroundCity));
         }
         return milePosts;
     }
@@ -173,5 +189,22 @@ public class MilePostFactory {
                 .icon(icon)
                 .country(UNDERGROUND)
                 .build();
+    }
+
+    public HexagonCubeCoordinate shiftXAxisCoordinate(HexagonCubeCoordinate hexagonCubeCoordinate) {
+        int x = hexagonCubeCoordinate.getX() + SHIFT_FACTOR;
+        return createShiftedCoordinate(hexagonCubeCoordinate.getZ(), x);
+    }
+
+    public HexagonCubeCoordinate reverseShiftXAxisCoordinate(HexagonCubeCoordinate hexagonCubeCoordinate) {
+        int x = hexagonCubeCoordinate.getX() - SHIFT_FACTOR;
+        return createShiftedCoordinate(hexagonCubeCoordinate.getZ(), x);
+    }
+
+    private HexagonCubeCoordinate createShiftedCoordinate(int z, int x) {
+        int y = CoordinateUtil.solveForY(x, z);
+        HexagonCubeCoordinate shiftedCoord = new HexagonCubeCoordinate(x, y ,z);
+        mapCoordinates.add(shiftedCoord);
+        return shiftedCoord;
     }
 }

@@ -3,7 +3,6 @@ package com.pphi.iron.dragon.component;
 import static org.testng.Assert.assertEquals;
 
 import com.iron.dragon.exceptions.UnsupportedEnumException;
-import com.pphi.iron.dragon.component.TerrainType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

@@ -1,5 +1,17 @@
 package com.pphi.iron.dragon.board;
 
+import static com.google.common.collect.Lists.newArrayList;
+import static com.google.common.collect.Maps.newHashMap;
+import static com.pphi.iron.dragon.board.WaterCrossingType.RIVER;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.fail;
+
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Map;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.HashMultimap;
@@ -9,18 +21,6 @@ import com.pphi.hexagon.neighbors.PointyTopCubeNeighbors;
 import com.pphi.hexagon.util.CoordinateUtil;
 import edu.uci.ics.jung.graph.util.Pair;
 import org.testng.annotations.Test;
-
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
-import java.util.Map;
-
-import static com.google.common.collect.Lists.newArrayList;
-import static com.google.common.collect.Maps.newHashMap;
-import static com.pphi.iron.dragon.board.WaterCrossingType.RIVER;
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.fail;
 
 public class RiverDataTest {
 

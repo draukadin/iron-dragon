@@ -1,16 +1,5 @@
 package com.pphi.iron.dragon.board;
 
-import com.google.common.base.Optional;
-import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
-import com.pphi.hexagon.neighbors.PointyTopCubeNeighbors;
-import com.pphi.iron.dragon.CoordinateDataProvider;
-import com.pphi.iron.dragon.component.TerrainType;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
-
-import java.util.Collection;
-import java.util.List;
-
 import static com.google.common.collect.Lists.newArrayList;
 import static com.pphi.iron.dragon.component.Country.UNDERGROUND;
 import static com.pphi.iron.dragon.component.TerrainType.CITY_AND_PORT;
@@ -19,6 +8,17 @@ import static com.pphi.iron.dragon.component.TerrainType.SEA_POINT;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
+
+import java.util.Collection;
+import java.util.List;
+
+import com.google.common.base.Optional;
+import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
+import com.pphi.hexagon.neighbors.PointyTopCubeNeighbors;
+import com.pphi.iron.dragon.CoordinateDataProvider;
+import com.pphi.iron.dragon.component.TerrainType;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 public class MilePostLinkFactoryTest {
 

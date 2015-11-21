@@ -6,11 +6,11 @@ import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import com.google.common.base.Optional;
 import com.google.common.collect.ComparisonChain;
+import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
 import com.pphi.iron.dragon.component.BasicMilePost;
 import com.pphi.iron.dragon.component.City;
 import com.pphi.iron.dragon.component.Country;
 import com.pphi.iron.dragon.component.TerrainType;
-import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
 
 public class MilePost implements Comparable<MilePost> {
 

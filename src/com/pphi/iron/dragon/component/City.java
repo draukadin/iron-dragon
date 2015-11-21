@@ -20,11 +20,11 @@ import static com.pphi.iron.dragon.component.TerrainType.MAJOR;
 import static com.pphi.iron.dragon.component.TerrainType.MEDIUM;
 import static com.pphi.iron.dragon.component.TerrainType.SMALL;
 
+import java.util.List;
+
 import com.google.common.base.MoreObjects;
 import com.iron.dragon.exceptions.UnsupportedEnumException;
 import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
-
-import java.util.List;
 
 public enum City {
     BLUEFELD(21, -8, -13, "Bluefeld", MAJOR, BRIGHT, "Hops"),

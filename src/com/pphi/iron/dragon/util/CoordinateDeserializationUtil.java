@@ -1,5 +1,8 @@
 package com.pphi.iron.dragon.util;
 
+import java.io.IOException;
+import java.nio.file.Path;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.HashMultimap;
@@ -7,9 +10,6 @@ import com.google.common.collect.Multimap;
 import com.pphi.iron.dragon.board.MilePostJson;
 import com.pphi.iron.dragon.component.Country;
 import edu.uci.ics.jung.graph.util.Pair;
-
-import java.io.IOException;
-import java.nio.file.Path;
 
 public final class CoordinateDeserializationUtil {
 

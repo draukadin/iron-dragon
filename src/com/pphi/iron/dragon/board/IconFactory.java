@@ -1,14 +1,15 @@
 package com.pphi.iron.dragon.board;
 
-import com.pphi.iron.dragon.component.TerrainType;
-//import org.apache.log4j.Logger;
-
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
+
+import com.pphi.iron.dragon.component.TerrainType;
+
+//import org.apache.log4j.Logger;
 
 public class IconFactory {
 

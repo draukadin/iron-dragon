@@ -1,10 +1,10 @@
 package com.pphi.iron.dragon.board;
 
-import com.google.common.collect.ImmutableSet;
-import edu.uci.ics.jung.graph.SortedSparseMultigraph;
-
 import java.util.Collection;
 import java.util.Set;
+
+import com.google.common.collect.ImmutableSet;
+import edu.uci.ics.jung.graph.SortedSparseMultigraph;
 
 public class BoardGraph extends SortedSparseMultigraph<MilePost, MilePostLink> {
 

@@ -1,9 +1,9 @@
 package com.pphi.iron.dragon.component;
 
+import static org.testng.Assert.assertEquals;
+
 import com.iron.dragon.exceptions.UnsupportedEnumException;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertEquals;
 
 public class CountryTest {
 
