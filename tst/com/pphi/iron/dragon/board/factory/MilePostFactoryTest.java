@@ -1,6 +1,7 @@
-package com.pphi.iron.dragon.board;
+package com.pphi.iron.dragon.board.factory;
 
 import static com.google.common.collect.Lists.newArrayList;
+import static com.google.common.collect.Sets.newHashSet;
 import static com.google.common.collect.Sets.newTreeSet;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
@@ -25,6 +26,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Table;
 import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
+import com.pphi.iron.dragon.board.model.MilePost;
 import com.pphi.iron.dragon.component.BasicMilePost;
 import com.pphi.iron.dragon.component.City;
 import com.pphi.iron.dragon.component.Country;
@@ -35,15 +37,25 @@ import org.testng.annotations.Test;
 
 public class MilePostFactoryTest {
 
+    private static final int MAIN_MAP_EVEN_ROW_SIZE = 65;
+    private static final int MAIN_MAP_ODD_ROW_SIZE = 66;
+    private static final int MAIN_AND_SIDE_MAP_EVEN_ROW_SIZE = 82;
+    private static final int MAIN_AND_SIDE_MAP_ODD_ROW_SIZE = 84;
+
     private MilePostFactory milePostFactory;
+    private Set<Integer> undergrounMapRows;
 
     @BeforeMethod
     public void setUp() throws Exception {
         milePostFactory = new MilePostFactory();
+        undergrounMapRows = newHashSet();
+        for (int i = -11; i < 17; i++) {
+            undergrounMapRows.add(i);
+        }
     }
 
-    @Parameters({ "rowToPrint"})
     @Test
+    @Parameters({ "rowToPrint" })
     public void getMainMapCoordinatesTest(Integer rowToPrint) throws Exception {
         Set<HexagonCubeCoordinate> mapCoordinates = milePostFactory.getMapCoordinates();
         Multimap<Integer, MilePost> milePostMap = ArrayListMultimap.create();
@@ -53,15 +65,29 @@ public class MilePostFactoryTest {
         int count = 0;
         for (Map.Entry<Integer, Collection<MilePost>> entry : milePostMap.asMap().entrySet()) {
             int z = entry.getKey();
+            int expectedRowSize;
+            if (undergrounMapRows.contains(z)) {
+                if (z % 2 == 0) {
+                    expectedRowSize = MAIN_AND_SIDE_MAP_EVEN_ROW_SIZE;
+                } else {
+                    expectedRowSize = MAIN_AND_SIDE_MAP_ODD_ROW_SIZE;
+                }
+            } else {
+                if (z % 2 == 0) {
+                    expectedRowSize = MAIN_MAP_EVEN_ROW_SIZE;
+                } else {
+                    expectedRowSize = MAIN_MAP_ODD_ROW_SIZE;
+                }
+            }
             Collection<MilePost> value = newTreeSet(entry.getValue());
             if (z % 2 == 0) {
-                if (value.size() != 65) {
-                    printRow(z, value, 65);
+                if (value.size() != expectedRowSize) {
+                    printRow(z, value, expectedRowSize);
                     count++;
                 }
             } else {
-                if (value.size() != 66) {
-                    printRow(z, value, 66);
+                if (value.size() != expectedRowSize) {
+                    printRow(z, value, expectedRowSize);
                     count++;
                 }
             }

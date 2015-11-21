@@ -13,7 +13,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
 import com.pphi.hexagon.util.CoordinateUtil;
-import com.pphi.iron.dragon.board.MilePostJson;
+import com.pphi.iron.dragon.board.raw.MilePostJson;
 import com.pphi.iron.dragon.util.CoordinateDeserializationUtil;
 import edu.uci.ics.jung.graph.util.Pair;
 import org.testng.annotations.DataProvider;

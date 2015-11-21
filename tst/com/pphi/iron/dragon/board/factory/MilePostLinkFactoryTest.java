@@ -1,11 +1,10 @@
-package com.pphi.iron.dragon.board;
+package com.pphi.iron.dragon.board.factory;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static com.pphi.iron.dragon.component.Country.UNDERGROUND;
 import static com.pphi.iron.dragon.component.TerrainType.CITY_AND_PORT;
 import static com.pphi.iron.dragon.component.TerrainType.PORT;
 import static com.pphi.iron.dragon.component.TerrainType.SEA_POINT;
-import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
@@ -16,6 +15,7 @@ import com.google.common.base.Optional;
 import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
 import com.pphi.hexagon.neighbors.PointyTopCubeNeighbors;
 import com.pphi.iron.dragon.CoordinateDataProvider;
+import com.pphi.iron.dragon.board.model.MilePost;
 import com.pphi.iron.dragon.component.TerrainType;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -91,15 +91,12 @@ public class MilePostLinkFactoryTest {
     @Test(dataProvider = "undergroundEntranceCoordinates", dataProviderClass = CoordinateDataProvider.class)
     public void testUndergroundEntrancesOnMainMapConnectToEntranceOnSideMap(HexagonCubeCoordinate coordinate) {
         Collection<MilePost> milePosts = milePostFactory.createMilePost(coordinate);
-        assertEquals(2, milePosts.size());
         MilePost undergroundEntrance = null;
         MilePost mainMapEntrance = null;
         for (MilePost milePost : milePosts) {
-            if (milePost.getCountry() == UNDERGROUND) {
-                undergroundEntrance = milePost;
-            } else {
-                mainMapEntrance = milePost;
-            }
+        undergroundEntrance = milePostFactory.createMilePost(
+                milePostFactory.shiftXAxisCoordinate(milePost.getCubeCoordinate())).iterator().next();
+        mainMapEntrance = milePost;
         }
         assertTrue(milePostLinkFactory.createLink(undergroundEntrance, mainMapEntrance).isPresent());
     }

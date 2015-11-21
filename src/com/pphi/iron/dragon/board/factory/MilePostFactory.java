@@ -1,4 +1,4 @@
-package com.pphi.iron.dragon.board;
+package com.pphi.iron.dragon.board.factory;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Sets.newHashSet;
@@ -20,6 +20,8 @@ import com.google.common.collect.Multimap;
 import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
 import com.pphi.hexagon.neighbors.PointyTopCubeNeighbors;
 import com.pphi.hexagon.util.CoordinateUtil;
+import com.pphi.iron.dragon.board.model.MilePost;
+import com.pphi.iron.dragon.board.raw.MilePostJson;
 import com.pphi.iron.dragon.component.BasicMilePost;
 import com.pphi.iron.dragon.component.City;
 import com.pphi.iron.dragon.component.Country;

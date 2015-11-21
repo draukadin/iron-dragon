@@ -1,4 +1,4 @@
-package com.pphi.iron.dragon.board;
+package com.pphi.iron.dragon.board.model;
 
 import java.util.Collection;
 import java.util.Set;

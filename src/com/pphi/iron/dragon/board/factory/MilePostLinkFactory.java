@@ -1,24 +1,33 @@
-package com.pphi.iron.dragon.board;
+package com.pphi.iron.dragon.board.factory;
+
+import static com.google.common.collect.Lists.newArrayList;
+import static com.pphi.iron.dragon.component.TerrainType.CITY_AND_PORT;
+import static com.pphi.iron.dragon.component.TerrainType.MAJOR;
+import static com.pphi.iron.dragon.component.TerrainType.PORT;
+import static com.pphi.iron.dragon.component.TerrainType.SEA_POINT;
+
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Collection;
+import java.util.List;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Optional;
 import com.google.common.collect.HashBasedTable;
-import com.google.common.collect.ImmutableTable;
 import com.google.common.collect.Table;
 import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
 import com.pphi.hexagon.neighbors.PointyTopCubeNeighbors;
 import com.pphi.hexagon.util.CoordinateUtil;
+import com.pphi.iron.dragon.board.model.MilePost;
+import com.pphi.iron.dragon.board.model.MilePostLink;
+import com.pphi.iron.dragon.board.raw.WaterCrossingJson;
+import com.pphi.iron.dragon.board.raw.WaterCrossingType;
+import com.pphi.iron.dragon.component.City;
 import com.pphi.iron.dragon.component.Country;
 import com.pphi.iron.dragon.component.TerrainType;
-
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
-import static com.pphi.iron.dragon.component.TerrainType.CITY_AND_PORT;
-import static com.pphi.iron.dragon.component.TerrainType.PORT;
-import static com.pphi.iron.dragon.component.TerrainType.SEA_POINT;
+import edu.uci.ics.jung.graph.Graph;
 
 public class MilePostLinkFactory {
 
@@ -35,7 +44,7 @@ public class MilePostLinkFactory {
         TerrainType srcTerrainType = src.getTerrainType();
         TerrainType destTerrainType = dest.getTerrainType();
         Optional<MilePostLink> linkOptional = Optional.absent();
-        MilePostLink.Builder builder = MilePostLink.builder();
+        MilePostLink.Builder builder = MilePostLink.builder(src, dest);
 
         if (srcTerrainType == SEA_POINT && destTerrainType == SEA_POINT) {
             checkForBorderCrossing(src, dest, builder);
@@ -53,6 +62,71 @@ public class MilePostLinkFactory {
             linkOptional = builder.build();
         }
         return linkOptional;
+    }
+
+    private enum EdgeAction {
+        CREATE, DESTROY
+    }
+
+    public void createMagicConnection(Graph<MilePost, MilePostLink> graph, City near, City far,
+            MilePostFactory milePostFactory) {
+        if (near.getTerrainType().equals(MAJOR) && far.getTerrainType().equals(MAJOR)) {
+            List<HexagonCubeCoordinate> farSideCoordinates = getHexagonCubeCoordinates(near);
+            List<HexagonCubeCoordinate> nearSideCoordinates = getHexagonCubeCoordinates(far);
+            modifyGraph(graph, milePostFactory, farSideCoordinates, nearSideCoordinates, EdgeAction.CREATE);
+        } else {
+            //TODO Logging statement
+        }
+    }
+
+    public void destroyMagicConnection(Graph<MilePost, MilePostLink> graph, City near, City far,
+            MilePostFactory milePostFactory) {
+        if (near.getTerrainType().equals(MAJOR) && far.getTerrainType().equals(MAJOR)) {
+            List<HexagonCubeCoordinate> farSideCoordinates = getHexagonCubeCoordinates(near);
+            List<HexagonCubeCoordinate> nearSideCoordinates = getHexagonCubeCoordinates(far);
+            modifyGraph(graph, milePostFactory, farSideCoordinates, nearSideCoordinates, EdgeAction.DESTROY);
+        } else {
+            //TODO Logging statement
+        }
+    }
+
+    private List<HexagonCubeCoordinate> getHexagonCubeCoordinates(City city) {
+        HexagonCubeCoordinate cubeCoordinate = city.getCubeCoordinate();
+        List<HexagonCubeCoordinate> farSideCoordinates = newArrayList();
+        farSideCoordinates.addAll(PointyTopCubeNeighbors.getNeighbors(cubeCoordinate));
+        farSideCoordinates.add(city.getCubeCoordinate());
+        return farSideCoordinates;
+    }
+
+    private void modifyGraph(Graph<MilePost, MilePostLink> graph, MilePostFactory milePostFactory,
+            List<HexagonCubeCoordinate> farSideCoordinates, List<HexagonCubeCoordinate> nearSideCoordinates,
+            EdgeAction edgeAction) {
+        for (HexagonCubeCoordinate nearSide : nearSideCoordinates) {
+            for (HexagonCubeCoordinate farSide : farSideCoordinates) {
+                MilePost src = getMilePost(milePostFactory, nearSide);
+                MilePost dest = getMilePost(milePostFactory, farSide);
+                MilePostLink hereToThere = MilePostLink.builder(src, dest).build().get();
+                MilePostLink thereToHere = MilePostLink.builder(dest, src).build().get();
+                switch (edgeAction) {
+                    case CREATE:
+                    graph.addEdge(hereToThere, src, dest);
+                    graph.addEdge(thereToHere, dest, src);
+                    break;
+                default:
+                    graph.removeEdge(hereToThere);
+                    graph.removeEdge(thereToHere);
+                }
+            }
+        }
+    }
+
+    private MilePost getMilePost(MilePostFactory milePostFactory, HexagonCubeCoordinate coordinate) {
+        Collection<MilePost> mileposts = milePostFactory.createMilePost(coordinate);
+        if (mileposts.size() == 1) {
+            return mileposts.iterator().next();
+        }
+        throw new IllegalStateException(String.format("Expected to only be one mile post for %s.  Found %d",
+                coordinate, mileposts.size()));
     }
 
     private void checkForWaterCrossing(MilePost src, MilePost dest, MilePostLink.Builder builder) {

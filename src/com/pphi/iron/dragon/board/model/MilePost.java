@@ -1,4 +1,4 @@
-package com.pphi.iron.dragon.board;
+package com.pphi.iron.dragon.board.model;
 
 import javax.swing.Icon;
 

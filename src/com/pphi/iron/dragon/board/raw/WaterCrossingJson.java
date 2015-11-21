@@ -1,4 +1,4 @@
-package com.pphi.iron.dragon.board;
+package com.pphi.iron.dragon.board.raw;
 
 public class WaterCrossingJson {
 

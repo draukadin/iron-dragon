@@ -1,8 +1,8 @@
-package com.pphi.iron.dragon.board;
+package com.pphi.iron.dragon.board.factory;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
-import static com.pphi.iron.dragon.board.WaterCrossingType.RIVER;
+import static com.pphi.iron.dragon.board.raw.WaterCrossingType.RIVER;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.fail;
 
@@ -19,6 +19,7 @@ import com.google.common.collect.Multimap;
 import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
 import com.pphi.hexagon.neighbors.PointyTopCubeNeighbors;
 import com.pphi.hexagon.util.CoordinateUtil;
+import com.pphi.iron.dragon.board.raw.WaterCrossingJson;
 import edu.uci.ics.jung.graph.util.Pair;
 import org.testng.annotations.Test;
 

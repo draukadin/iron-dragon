@@ -1,21 +1,21 @@
-package com.pphi.iron.dragon.board;
+package com.pphi.iron.dragon.board.model;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import com.google.common.base.Optional;
 import com.google.common.collect.ComparisonChain;
 
-import java.util.UUID;
-
 public class MilePostLink implements Comparable<MilePostLink> {
 
-    private String milePostLinkId;
+    private MilePost src;
+    private MilePost dest;
     private boolean border;
     private boolean inlet;
     private boolean river;
 
     private MilePostLink(Builder builder) {
-        milePostLinkId = builder.milePostLinkId;
+        src = builder.src;
+        dest = builder.dest;
         border = builder.border;
         inlet = builder.inlet;
         river = builder.river;
@@ -37,13 +37,23 @@ public class MilePostLink implements Comparable<MilePostLink> {
         return new Builder();
     }
 
+    public static Builder builder(MilePost src, MilePost dest) {
+        return new Builder(src, dest);
+    }
+
     public static final class Builder {
-        private String milePostLinkId = UUID.randomUUID().toString();
+        private MilePost src;
+        private MilePost dest;
         private boolean border = false;
         private boolean inlet = false;
         private boolean river = false;
 
         private Builder() {}
+
+        private Builder(MilePost src, MilePost dest) {
+            this.src = src;
+            this.dest = dest;
+        }
 
         public Builder border(boolean val) {
             border = val;
@@ -68,7 +78,8 @@ public class MilePostLink implements Comparable<MilePostLink> {
     public int compareTo(MilePostLink o) {
         return ComparisonChain
                 .start()
-                .compare(milePostLinkId, o.milePostLinkId)
+                .compare(src, o.src)
+                .compare(dest, o.dest)
                 .compare(border, o.border)
                 .compare(inlet, o.inlet)
                 .compare(river, o.river)
@@ -86,7 +97,8 @@ public class MilePostLink implements Comparable<MilePostLink> {
 
         MilePostLink that = (MilePostLink) o;
 
-        return Objects.equal(this.milePostLinkId, that.milePostLinkId)
+        return Objects.equal(this.src, that.src)
+                && Objects.equal(this.dest, that.dest)
                 && Objects.equal(this.border, that.border)
                 && Objects.equal(this.inlet, that.inlet)
                 && Objects.equal(this.river, that.river);
@@ -94,13 +106,14 @@ public class MilePostLink implements Comparable<MilePostLink> {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(milePostLinkId, border, inlet, river);
+        return Objects.hashCode(src, dest, border, inlet, river);
     }
 
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-                .add("milePostLinkId", milePostLinkId)
+                .add("src", src)
+                .add("dest", dest)
                 .add("border", border)
                 .add("inlet", inlet)
                 .add("river", river)

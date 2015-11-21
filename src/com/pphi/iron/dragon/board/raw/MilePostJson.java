@@ -1,4 +1,4 @@
-package com.pphi.iron.dragon.board;
+package com.pphi.iron.dragon.board.raw;
 
 import com.pphi.iron.dragon.component.Country;
 import edu.uci.ics.jung.graph.util.Pair;
