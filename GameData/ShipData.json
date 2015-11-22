@@ -1,0 +1,56 @@
+{
+  "@class" : "com.pphi.iron.dragon.component.deck.ShipDeck",
+  "deck" : [{
+    "@class" : "com.pphi.iron.dragon.component.card.ship.ShipCard",
+    "name" : "Parekis Packet",
+    "shipType" : "CLASS_1"
+  }, {
+    "@class" : "com.pphi.iron.dragon.component.card.ship.ShipCard",
+    "name" : "Serpent",
+    "shipType" : "CLASS_1"
+  }, {
+    "@class" : "com.pphi.iron.dragon.component.card.ship.ShipCard",
+    "name" : "Far Horizon",
+    "shipType" : "CLASS_2"
+  }, {
+    "@class" : "com.pphi.iron.dragon.component.card.ship.ShipCard",
+    "name" : "Seahawk",
+    "shipType" : "CLASS_2"
+  }, {
+    "@class" : "com.pphi.iron.dragon.component.card.ship.ShipCard",
+    "name" : "Eastern Star",
+    "shipType" : "CLASS_3"
+  }, {
+    "@class" : "com.pphi.iron.dragon.component.card.ship.ShipCard",
+    "name" : "Hyperion",
+    "shipType" : "CLASS_3"
+  }, {
+    "@class" : "com.pphi.iron.dragon.component.card.ship.ShipCard",
+    "name" : "Old Mormoth",
+    "shipType" : "CLASS_3"
+  }, {
+    "@class" : "com.pphi.iron.dragon.component.card.ship.ShipCard",
+    "name" : "Fourth Emperor",
+    "shipType" : "CLASS_4"
+  }, {
+    "@class" : "com.pphi.iron.dragon.component.card.ship.ShipCard",
+    "name" : "Mother Bern",
+    "shipType" : "CLASS_4"
+  }, {
+    "@class" : "com.pphi.iron.dragon.component.card.ship.ShipCard",
+    "name" : "Royal Sovereign",
+    "shipType" : "CLASS_5"
+  }, {
+    "@class" : "com.pphi.iron.dragon.component.card.ship.ShipCard",
+    "name" : "Vulture",
+    "shipType" : "CLASS_5"
+  }, {
+    "@class" : "com.pphi.iron.dragon.component.card.ship.ShipCard",
+    "name" : "FeatherMoth",
+    "shipType" : "CLASS_6"
+  }, {
+    "@class" : "com.pphi.iron.dragon.component.card.ship.ShipCard",
+    "name" : "Golden Sprite",
+    "shipType" : "CLASS_6"
+  }]
+}

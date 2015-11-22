@@ -11,7 +11,8 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, include = JsonTypeInfo.As.PROPERTY, property = "@class")
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = ForemanDeck.class)
+        @JsonSubTypes.Type(value = ForemanDeck.class),
+        @JsonSubTypes.Type(value = ShipDeck.class)
 })
 public abstract class Deck<T> {
 

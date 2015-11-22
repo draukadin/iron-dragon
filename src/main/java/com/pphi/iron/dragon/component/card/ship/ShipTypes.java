@@ -6,7 +6,7 @@ public enum ShipTypes {
     private int cost;
     private int speed;
 
-    private ShipTypes(int cost, int speed) {
+    ShipTypes(int cost, int speed) {
         this.cost = cost;
         this.speed = speed;
     }

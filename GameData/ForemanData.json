@@ -1,5 +1,5 @@
 {
-  "@class" : "com.pphi.iron.dragon.component.deck.ForemenDeck",
+  "@class" : "com.pphi.iron.dragon.component.deck.ForemanDeck",
   "deck" : [
   {
     "@class" : "com.pphi.iron.dragon.component.card.foreman.StandardForeman",

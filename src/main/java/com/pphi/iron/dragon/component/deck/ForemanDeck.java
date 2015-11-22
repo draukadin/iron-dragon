@@ -12,6 +12,7 @@ public class ForemanDeck extends Deck<Foreman> {
     private final ForemanDiscardPile foremanDiscardPile;
 
     public ForemanDeck() {
+        super();
         foremanDiscardPile = new ForemanDiscardPile();
     }
 
