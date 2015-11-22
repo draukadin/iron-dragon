@@ -1,0 +1,83 @@
+{
+  "@class" : "com.pphi.iron.dragon.component.deck.ForemenDeck",
+  "deck" : [
+  {
+    "@class" : "com.pphi.iron.dragon.component.card.foreman.StandardForeman",
+    "cardNumber" : 1,
+    "race" : "CATMAN",
+    "foremanName" : "Carras",
+    "description" : "Player builds track to jungle milepost at cost of 1 GP."
+  }, {
+    "@class" : "com.pphi.iron.dragon.component.card.foreman.StandardForeman",
+    "cardNumber" : 2,
+    "race" : "CATMAN",
+    "foremanName" : "Cynnrr",
+    "description" : "Player builds track to jungle milepost at cost of 1 GP."
+  }, {
+    "@class" : "com.pphi.iron.dragon.component.card.foreman.StandardForeman",
+    "cardNumber" : 3,
+    "race" : "DWARF",
+    "foremanName" : "Dingur Knorsen",
+    "description" : "Player builds track to mountain milepost at cost of 1 GP."
+  }, {
+    "@class" : "com.pphi.iron.dragon.component.card.foreman.StandardForeman",
+    "cardNumber" : 4,
+    "race" : "DWARF",
+    "foremanName" : "Orrik Ironfist",
+    "description" : "Player builds track to mountain milepost at cost of 1 GP."
+  }, {
+    "@class" : "com.pphi.iron.dragon.component.card.foreman.StandardForeman",
+    "cardNumber" : 5,
+    "race" : "DWARF",
+    "foremanName" : "Ragnor Rockjaw",
+    "description" : "Player builds track to mountain milepost at cost of 1 GP."
+  }, {
+    "@class" : "com.pphi.iron.dragon.component.card.foreman.StandardForeman",
+    "cardNumber" : 6,
+    "race" : "ELF_HALF_ELF",
+    "foremanName" : "Gaelweth Grace",
+    "description" : "Player builds track to forest milepost at cost of 1 GP."
+  }, {
+    "@class" : "com.pphi.iron.dragon.component.card.foreman.StandardForeman",
+    "cardNumber" : 7,
+    "race" : "ELF_HALF_ELF",
+    "foremanName" : "Persey Browne",
+    "description" : "Player builds track to forest milepost at cost of 1 GP."
+  }, {
+    "@class" : "com.pphi.iron.dragon.component.card.foreman.StandardForeman",
+    "cardNumber" : 8,
+    "race" : "ELF_HALF_ELF",
+    "foremanName" : "Steffan",
+    "description" : "Player builds track to forest milepost at cost of 1 GP."
+  }, {
+    "@class" : "com.pphi.iron.dragon.component.card.foreman.HumanForeman",
+    "cardNumber" : 9,
+    "race" : "HUMAN",
+    "foremanName" : "Denzel Halbezch",
+    "description" : "Player builds bridges across rivers for free and across ocean inlets at cost of 1 GP."
+  }, {
+    "@class" : "com.pphi.iron.dragon.component.card.foreman.HumanForeman",
+    "cardNumber" : 10,
+    "race" : "HUMAN",
+    "foremanName" : "Groc",
+    "description" : "Player builds bridges across rivers for free and across ocean inlets at cost of 1 GP."
+  }, {
+    "@class" : "com.pphi.iron.dragon.component.card.foreman.UndergroundForeman",
+    "cardNumber" : 11,
+    "race" : "ORC",
+    "foremanName" : "Kudamram",
+    "description" : "Player pays no bribes in Underground and receives payment of Underground bribes by other players."
+  }, {
+    "@class" : "com.pphi.iron.dragon.component.card.foreman.UndergroundForeman",
+    "cardNumber" : 12,
+    "race" : "TROLL",
+    "foremanName" : "Urk Harakn",
+    "description" : "Player builds in Underground at cost of 2 GP per mile post. Player pays no bribes for building.  Player may not build outside of Underground."
+  }, {
+    "@class" : "com.pphi.iron.dragon.component.card.foreman.WeeFolkForeman",
+    "cardNumber" : 13,
+    "race" : "WEE_FOLK",
+    "foremanName" : "Wellpole Wyndle",
+    "description" : "Player may draw three shipTypes cards when boarding shipTypes.  Player does not pay boarding fees."
+  }]
+}
