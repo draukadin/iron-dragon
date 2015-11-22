@@ -1,4 +1,4 @@
-package com.pphi.iron.dragon.board.factory;
+package com.pphi.iron.dragon.board.raw;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;

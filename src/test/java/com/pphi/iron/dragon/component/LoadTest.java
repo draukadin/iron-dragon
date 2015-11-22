@@ -2,7 +2,7 @@ package com.pphi.iron.dragon.component;
 
 import static org.testng.Assert.assertEquals;
 
-import com.iron.dragon.exceptions.UnsupportedEnumException;
+import com.pphi.iron.dragon.exceptions.UnsupportedEnumException;
 import org.testng.annotations.Test;
 
 public class LoadTest {

@@ -2,7 +2,7 @@ package com.pphi.iron.dragon.component;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-import com.iron.dragon.exceptions.UnsupportedEnumException;
+import com.pphi.iron.dragon.exceptions.UnsupportedEnumException;
 
 /**
  * This class defines the number of possible load types and the number of loads available as outlined in the

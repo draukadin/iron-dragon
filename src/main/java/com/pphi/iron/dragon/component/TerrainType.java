@@ -2,7 +2,7 @@ package com.pphi.iron.dragon.component;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
-import com.iron.dragon.exceptions.UnsupportedEnumException;
+import com.pphi.iron.dragon.exceptions.UnsupportedEnumException;
 
 public enum TerrainType {
     PLAIN(1, "plain.png"),
