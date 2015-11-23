@@ -16,20 +16,24 @@ public class ForemanDeck extends Deck<Foreman> {
         foremanDiscardPile = new ForemanDiscardPile();
     }
 
+    @Override
     @JsonIgnore
-    public ForemanDiscardPile getForemanDiscardPile() {
+    public DiscardPile<Foreman> getDiscardPile() {
         return foremanDiscardPile;
     }
 
-    public void discardForeman(Foreman card) {
+    @Override
+    public void discard(Foreman card) {
         foremanDiscardPile.addCardToDiscardPile(card);
     }
 
+    @Override
     @JsonIgnore
     public Foreman getCardFromDiscardPile() {
         return foremanDiscardPile.getCardFromTopOfPile();
     }
 
+    @Override
     @JsonIgnore
     public List<Foreman> combineDiscardPileWithDeck() {
         deck.addAll(foremanDiscardPile.getDiscardPile());

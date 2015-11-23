@@ -12,12 +12,13 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 @JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, include = JsonTypeInfo.As.PROPERTY, property = "@class")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = ForemanDeck.class),
-        @JsonSubTypes.Type(value = ShipDeck.class)
+        @JsonSubTypes.Type(value = ShipDeck.class),
+        @JsonSubTypes.Type(value = DemandDeck.class)
 })
 public abstract class Deck<T> {
 
     @JsonProperty("deck")
-    protected final List<T> deck;
+    public final List<T> deck;
 
     protected Deck() {
         deck = newArrayList();
@@ -27,6 +28,11 @@ public abstract class Deck<T> {
         int randomIndex = new Random().nextInt(deck.size());
         return deck.remove(randomIndex);
     }
+
+    protected abstract void discard(T card);
+    protected abstract List<T> combineDiscardPileWithDeck();
+    protected abstract T getCardFromDiscardPile();
+    protected abstract DiscardPile<T> getDiscardPile();
 
     protected int size() {
         return deck.size();

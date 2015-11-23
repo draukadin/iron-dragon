@@ -16,19 +16,27 @@ public class ShipDeck extends Deck<ShipCard> {
         shipDiscardPile = new ShipDiscardPile();
     }
 
+    @Override
     @JsonIgnore
-    public ShipDiscardPile getShipDiscardPile() {
+    public DiscardPile<ShipCard> getDiscardPile() {
         return shipDiscardPile;
     }
 
-    public void discardShip(ShipCard card) {
+    @Override
+    public void discard(ShipCard card) {
         shipDiscardPile.addCardToDiscardPile(card);
     }
 
+    @Override
     @JsonIgnore
     public List<ShipCard> combineDiscardPileWithDeck() {
         deck.addAll(shipDiscardPile.getDiscardPile());
         shipDiscardPile.emptyDiscardPile();
         return deck;
+    }
+
+    @Override
+    protected ShipCard getCardFromDiscardPile() {
+        throw new UnsupportedOperationException("That action is not allowed");
     }
 }
