@@ -36,6 +36,7 @@ public class ShipDeck extends Deck<ShipCard> {
     }
 
     @Override
+    @JsonIgnore
     protected ShipCard getCardFromDiscardPile() {
         throw new UnsupportedOperationException("That action is not allowed");
     }
