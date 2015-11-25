@@ -40,4 +40,12 @@ public class ForemanDeck extends Deck<Foreman> {
         foremanDiscardPile.emptyDiscardPile();
         return deck;
     }
+
+    public List<Foreman> getEntireDeck() {
+        return deck;
+    }
+
+    public Foreman chooseCardFromDeck(int index) {
+        return deck.remove(index);
+    }
 }
