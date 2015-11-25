@@ -5,9 +5,9 @@ import static org.testng.Assert.assertEquals;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pphi.iron.dragon.component.card.train.TrainCard;
 import com.pphi.iron.dragon.exceptions.TrainTypeNotAvailableException;
+import com.pphi.iron.dragon.jackson.JacksonUtil;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -20,8 +20,7 @@ public class TrainDeckTest {
 
     @BeforeMethod
     public void setUp() throws Exception {
-        ObjectMapper objectMapper = new ObjectMapper();
-        trainDeck = objectMapper.readValue(PATH.toFile(), TrainDeck.class);
+        trainDeck = JacksonUtil.deserialize(PATH, TrainDeck.class);
     }
 
     @Test

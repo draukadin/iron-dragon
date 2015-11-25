@@ -8,10 +8,9 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import com.pphi.iron.dragon.component.card.foreman.Foreman;
 import com.pphi.iron.dragon.exceptions.EmptyDiscardPileException;
+import com.pphi.iron.dragon.jackson.JacksonUtil;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -22,9 +21,7 @@ public class ForemanDeckTest {
 
     @BeforeMethod
     public void setUp() throws Exception {
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
-        foremanDeck = objectMapper.readValue(PATH.toFile(), ForemanDeck.class);
+        foremanDeck = JacksonUtil.deserialize(PATH, ForemanDeck.class);
     }
 
     @Test

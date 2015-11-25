@@ -6,8 +6,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
+import com.pphi.iron.dragon.jackson.JacksonUtil;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -18,9 +17,7 @@ public class ShipDeckTest {
 
     @BeforeMethod
     public void setUp() throws Exception {
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
-        shipDeck = objectMapper.readValue(PATH.toFile(), ShipDeck.class);
+        shipDeck = JacksonUtil.deserialize(PATH, ShipDeck.class);
     }
 
     @Test
