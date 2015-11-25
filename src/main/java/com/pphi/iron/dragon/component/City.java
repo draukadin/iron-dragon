@@ -22,9 +22,10 @@ import static com.pphi.iron.dragon.component.TerrainType.SMALL;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.base.MoreObjects;
-import com.pphi.iron.dragon.exceptions.UnsupportedEnumException;
 import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
+import com.pphi.iron.dragon.exceptions.UnsupportedEnumException;
 
 public enum City {
     BLUEFELD(21, -8, -13, "Bluefeld", MAJOR, BRIGHT, "Hops"),
@@ -111,22 +112,27 @@ public enum City {
         throw new UnsupportedEnumException("City " + name + " is not supported");
     }
 
+    @JsonIgnore
     public HexagonCubeCoordinate getCubeCoordinate() {
         return cubeCoordinate;
     }
 
+    @JsonIgnore
     public String getName() {
         return name;
     }
 
+    @JsonIgnore
     public Country getCountry() {
         return country;
     }
 
+    @JsonIgnore
     public TerrainType getTerrainType() {
         return terrainType;
     }
 
+    @JsonIgnore
     public List<Load> getAvailableLoads() {
         return availableLoads;
     }

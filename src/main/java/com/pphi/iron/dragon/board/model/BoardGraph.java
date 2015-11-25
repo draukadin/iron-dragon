@@ -3,8 +3,10 @@ package com.pphi.iron.dragon.board.model;
 import java.util.Collection;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.collect.ImmutableSet;
 import edu.uci.ics.jung.graph.SortedSparseMultigraph;
+import edu.uci.ics.jung.graph.util.EdgeType;
 
 public class BoardGraph extends SortedSparseMultigraph<MilePost, MilePostLink> {
 
@@ -63,5 +65,29 @@ public class BoardGraph extends SortedSparseMultigraph<MilePost, MilePostLink> {
             outEdges = EMPTY_EDGES;
         }
         return outEdges;
+    }
+
+    @Override
+    @JsonIgnore
+    public Collection<MilePost> getVertices() {
+        return super.getVertices();
+    }
+
+    @Override
+    @JsonIgnore
+    public int getEdgeCount() {
+        return super.getEdgeCount();
+    }
+
+    @Override
+    @JsonIgnore
+    public int getVertexCount() {
+        return super.getVertexCount();
+    }
+
+    @Override
+    @JsonIgnore
+    public EdgeType getDefaultEdgeType() {
+        return super.getDefaultEdgeType();
     }
 }

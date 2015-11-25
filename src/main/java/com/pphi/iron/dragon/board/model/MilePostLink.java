@@ -1,5 +1,7 @@
 package com.pphi.iron.dragon.board.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import com.google.common.base.Optional;
@@ -13,12 +15,34 @@ public class MilePostLink implements Comparable<MilePostLink> {
     private boolean inlet;
     private boolean river;
 
+    @JsonCreator
+    public MilePostLink(
+            @JsonProperty("src") MilePost src,
+            @JsonProperty("dest") MilePost dest,
+            @JsonProperty("border") boolean border,
+            @JsonProperty("inlet") boolean inlet,
+            @JsonProperty("river") boolean river) {
+        this.src = src;
+        this.dest = dest;
+        this.border = border;
+        this.inlet = inlet;
+        this.river = river;
+    }
+
     private MilePostLink(Builder builder) {
         src = builder.src;
         dest = builder.dest;
         border = builder.border;
         inlet = builder.inlet;
         river = builder.river;
+    }
+
+    public MilePost getSrc() {
+        return src;
+    }
+
+    public MilePost getDest() {
+        return dest;
     }
 
     public boolean isBorder() {

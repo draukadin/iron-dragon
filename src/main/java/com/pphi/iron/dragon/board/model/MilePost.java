@@ -2,11 +2,15 @@ package com.pphi.iron.dragon.board.model;
 
 import javax.swing.Icon;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import com.google.common.base.Optional;
 import com.google.common.collect.ComparisonChain;
 import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
+import com.pphi.iron.dragon.board.factory.IconFactory;
 import com.pphi.iron.dragon.component.BasicMilePost;
 import com.pphi.iron.dragon.component.City;
 import com.pphi.iron.dragon.component.Country;
@@ -22,7 +26,26 @@ public class MilePost implements Comparable<MilePost> {
     private int radius;
     private Icon icon;
 
-    public MilePost(Builder builder) {
+    @JsonCreator
+    public MilePost(@JsonProperty("cubeCoordinate") HexagonCubeCoordinate cubeCoordinate,
+                    @JsonProperty("cityMilePost") String cityMilePost,
+                    @JsonProperty("terrainType") String terrainType,
+                    @JsonProperty("country") String country,
+                    @JsonProperty("radius") int radius) {
+        this.cubeCoordinate = cubeCoordinate;
+        if (cityMilePost == null) {
+            this.cityMilePost = Optional.absent();
+        } else {
+            this.cityMilePost = Optional.fromNullable(City.valueOf(cityMilePost));
+        }
+        this.terrainType = TerrainType.valueOf(terrainType);
+        this.country = Country.valueOf(country);
+        this.radius = radius;
+        IconFactory iconFactory = new IconFactory();
+        icon = iconFactory.getIcon(this.terrainType);
+    }
+
+    private MilePost(Builder builder) {
         cubeCoordinate = builder.cubeCoordinate;
         cityMilePost = builder.cityMilePost;
         milePost = builder.milePost;
@@ -40,6 +63,7 @@ public class MilePost implements Comparable<MilePost> {
         return cityMilePost;
     }
 
+    @JsonIgnore
     public Optional<BasicMilePost> getMilePost() {
         return milePost;
     }
@@ -56,6 +80,7 @@ public class MilePost implements Comparable<MilePost> {
         return radius;
     }
 
+    @JsonIgnore
     public Icon getIcon() {
         return icon;
     }

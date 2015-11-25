@@ -8,6 +8,8 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.Optional;
 import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
 import com.pphi.hexagon.neighbors.PointyTopCubeNeighbors;
@@ -20,7 +22,7 @@ import edu.uci.ics.jung.graph.util.EdgeType;
 
 public class GameBoard {
 
-    private static final HexagonCubeCoordinate MAIN_MAP_SEED = new HexagonCubeCoordinate(0, 0, 0);
+    private static final HexagonCubeCoordinate MAIN_MAP_SEED = new HexagonCubeCoordinate();
     private static final HexagonCubeCoordinate SIDE_MAP_SEED = new HexagonCubeCoordinate(-36, 36, 0);
 
     private Graph<MilePost, MilePostLink> boardGraph;
@@ -50,6 +52,16 @@ public class GameBoard {
             }
         }
         createMagicBridge(City.WIKKEDDE, City.OZU_ZARKH, milePostFactory, milePostLinkFactory);
+        //Takes ~50 seconds to build map from serialized JSON and ~30 seconds to build from raw data so not much point
+        //in serializing the game board right now
+        //JacksonUtil.serializeToFile(this, COMPRESSED_JSON);
+    }
+
+    @JsonCreator
+    public GameBoard(
+            @JsonProperty("boardGraph")
+            Graph<MilePost, MilePostLink> boardGraph) {
+        this.boardGraph = boardGraph;
     }
 
     public void createMagicBridge(City wikkedde, City ozuZarkh, MilePostFactory milePostFactory,
