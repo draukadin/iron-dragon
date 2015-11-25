@@ -24,7 +24,7 @@ public abstract class Deck<T> {
         deck = newArrayList();
     }
 
-    protected T getRandomCard() {
+    public T getRandomCard() {
         int randomIndex = new Random().nextInt(deck.size());
         return deck.remove(randomIndex);
     }
