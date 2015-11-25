@@ -32,7 +32,7 @@ public class DemandDeck extends Deck<DemandCard> {
     @Override
     @JsonIgnore
     protected DemandCard getCardFromDiscardPile() {
-        return demandDiscardPile.getCardFromTopOfPile();
+        throw new UnsupportedOperationException("That action is not allowed");
     }
 
     @Override
