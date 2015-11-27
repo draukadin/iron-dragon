@@ -20,17 +20,17 @@ import org.testng.annotations.DataProvider;
 
 public class CoordinateDataProvider {
 
-    private static final Path ALPINE_POINTS_PATH = Paths.get("GameData/AlpineMilePosts.json");
-    private static final Path DESERT_POINTS_PATH = Paths.get("GameData/DesertMilePosts.json");
-    private static final Path FOREST_POINTS_PATH = Paths.get("GameData/ForestMilePosts.json");
-    private static final Path JUNGLE_POINTS_PATH = Paths.get("GameData/JungleMilePosts.json");
-    private static final Path MOUNTAIN_POINTS_PATH = Paths.get("GameData/MountainMilePosts.json");
-    private static final Path PLAIN_POINTS_PATH = Paths.get("GameData/PlainMilePosts.json");
-    private static final Path PORTS_PATH = Paths.get("GameData/PortMilePosts.json");
-    private static final Path SEA_POINTS_PATH = Paths.get("GameData/OceanMilePosts.json");
-    private static final Path UNDERGROUND_ENTRANCE_POINTS_PATH = Paths.get("GameData/UndergroundEntranceMilePosts.json");
-    private static final Path UNDERGROUND_POINTS_PATH = Paths.get("GameData/UndergroundRockMilePosts.json");
-    private static final Path VOLCANO_POINTS_PATH = Paths.get("GameData/VolcanoMilePosts.json");
+    private static final Path ALPINE_POINTS_PATH = Paths.get("../GameData/AlpineMilePosts.json");
+    private static final Path DESERT_POINTS_PATH = Paths.get("../GameData/DesertMilePosts.json");
+    private static final Path FOREST_POINTS_PATH = Paths.get("../GameData/ForestMilePosts.json");
+    private static final Path JUNGLE_POINTS_PATH = Paths.get("../GameData/JungleMilePosts.json");
+    private static final Path MOUNTAIN_POINTS_PATH = Paths.get("../GameData/MountainMilePosts.json");
+    private static final Path PLAIN_POINTS_PATH = Paths.get("../GameData/PlainMilePosts.json");
+    private static final Path PORTS_PATH = Paths.get("../GameData/PortMilePosts.json");
+    private static final Path SEA_POINTS_PATH = Paths.get("../GameData/OceanMilePosts.json");
+    private static final Path UNDERGROUND_ENTRANCE_POINTS_PATH = Paths.get("../GameData/UndergroundEntranceMilePosts.json");
+    private static final Path UNDERGROUND_POINTS_PATH = Paths.get("../GameData/UndergroundRockMilePosts.json");
+    private static final Path VOLCANO_POINTS_PATH = Paths.get("../GameData/VolcanoMilePosts.json");
 
     @DataProvider(name = "portCoordinates")
     public static Object[][] portCoordinateDataProvider() throws IOException {

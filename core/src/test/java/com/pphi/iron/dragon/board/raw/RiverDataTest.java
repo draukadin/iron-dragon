@@ -38,7 +38,7 @@ public class RiverDataTest {
 
     private Map<String, Integer> getExpectedValues() throws Exception {
         Map<String, Integer> map = newHashMap();
-        Path path = Paths.get("src/test/resources/ExpectedNumberOfRiverCrossings.json");
+        Path path = Paths.get("../src/test/resources/ExpectedNumberOfRiverCrossings.json");
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode nodes = objectMapper.readTree(path.toFile());
         for (JsonNode riverData : nodes) {
@@ -50,7 +50,7 @@ public class RiverDataTest {
     }
 
     private Multimap<String, Pair<HexagonCubeCoordinate>> act() throws IOException {
-        Path path = Paths.get("GameData/Rivers.json");
+        Path path = Paths.get("../GameData/Rivers.json");
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode nodes = objectMapper.readTree(path.toFile());
         Multimap<String, Pair<HexagonCubeCoordinate>> data = HashMultimap.create();

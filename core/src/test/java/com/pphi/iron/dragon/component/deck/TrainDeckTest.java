@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 
 public class TrainDeckTest {
 
-    private static final Path PATH = Paths.get("GameData/TrainData.json");
+    private static final Path PATH = Paths.get("../GameData/TrainData.json");
 
     private TrainDeck trainDeck;
 

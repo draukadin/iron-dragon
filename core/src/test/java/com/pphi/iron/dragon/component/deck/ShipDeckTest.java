@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 public class ShipDeckTest {
 
-    private static final Path PATH = Paths.get("GameData/ShipData.json");
+    private static final Path PATH = Paths.get("../GameData/ShipData.json");
     private ShipDeck shipDeck;
 
     @BeforeMethod

@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
 
 public class ForemanDeckTest {
 
-    private static final Path PATH = Paths.get("GameData/ForemanData.json");
+    private static final Path PATH = Paths.get("../GameData/ForemanData.json");
     private ForemanDeck foremanDeck;
 
     @BeforeMethod

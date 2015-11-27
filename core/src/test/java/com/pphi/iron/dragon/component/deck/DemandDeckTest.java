@@ -13,7 +13,7 @@ public class DemandDeckTest {
 
     @Test
     public void createDeckTest() throws IOException {
-        Path file = Paths.get("GameData/DemandDeckData.json");
+        Path file = Paths.get("../GameData/DemandDeckData.json");
         DemandDeck demandDeck = JacksonUtil.deserialize(file, DemandDeck.class);
         assertEquals(demandDeck.size(), 146);
     }
