@@ -1,6 +1,6 @@
 apply plugin: "java"
 
-sourceCompatibility = 1.6
+sourceCompatibility = 1.8
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
 sourceSets.main.java.srcDirs = [ "src/" ]
@@ -8,4 +8,27 @@ sourceSets.main.java.srcDirs = [ "src/" ]
 
 eclipse.project {
     name = appName + "-core"
+}
+
+ext {
+    appName = "IronDragon"
+    jungVersion = '2.0.1'
+    guavaVersion = '18.0'
+    jacksonVersion = '2.6.3'
+    log4jVersion = '1.2.17'
+}
+
+dependencies {
+    compile "org.codehaus.groovy:groovy-all:2.3.11"
+    compile "net.sf.jung:jung-visualization:$jungVersion"
+    compile "net.sf.jung:jung-graph-impl:$jungVersion"
+    compile "com.google.guava:guava:$guavaVersion"
+    compile "com.fasterxml.jackson.datatype:jackson-datatype-guava:$jacksonVersion"
+    compile "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+    compile "com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion"
+    compile "log4j:log4j:$log4jVersion"
+    compile("com.pphi:hexagon:1.0") {
+        changing=true
+    }
+    testCompile group: 'org.testng', name: 'testng', version: '6.9.4'
 }

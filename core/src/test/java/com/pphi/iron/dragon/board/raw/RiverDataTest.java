@@ -19,7 +19,6 @@ import com.google.common.collect.Multimap;
 import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
 import com.pphi.hexagon.neighbors.PointyTopCubeNeighbors;
 import com.pphi.hexagon.util.CoordinateUtil;
-import com.pphi.iron.dragon.board.raw.WaterCrossingJson;
 import edu.uci.ics.jung.graph.util.Pair;
 import org.testng.annotations.Test;
 
@@ -39,7 +38,7 @@ public class RiverDataTest {
 
     private Map<String, Integer> getExpectedValues() throws Exception {
         Map<String, Integer> map = newHashMap();
-        Path path = Paths.get("tstData/ExpectedNumberOfRiverCrossings.json");
+        Path path = Paths.get("src/test/resources/ExpectedNumberOfRiverCrossings.json");
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode nodes = objectMapper.readTree(path.toFile());
         for (JsonNode riverData : nodes) {
