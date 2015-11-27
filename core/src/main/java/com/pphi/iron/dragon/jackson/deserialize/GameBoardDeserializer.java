@@ -34,7 +34,8 @@ public class GameBoardDeserializer extends JsonDeserializer<GameBoard> {
         JsonNode edges = node.get("edges");
         for (JsonNode edge : edges) {
             MilePostLink milePostLink = objectMapper.treeToValue(edge, MilePostLink.class);
-            graph.addEdge(milePostLink, milePostLink.getSrc(), milePostLink.getDest());
+            //TODO come up with a better way to serialize and deserialize the graph
+//            graph.addEdge(milePostLink, milePostLink.getSrc(), milePostLink.getDest());
         }
     }
 }

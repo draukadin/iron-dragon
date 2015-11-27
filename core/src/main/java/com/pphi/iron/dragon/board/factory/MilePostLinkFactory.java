@@ -35,8 +35,8 @@ public class MilePostLinkFactory {
 
     public MilePostLinkFactory() throws IOException {
         Table<HexagonCubeCoordinate, HexagonCubeCoordinate, WaterCrossingJson> builder =
-            deserialize(Paths.get("GameData/Rivers.json"), WaterCrossingType.RIVER);
-        builder.putAll(deserialize(Paths.get("GameData/OceanInlets.json"), WaterCrossingType.OCEAN_INLET));
+            deserialize(Paths.get("../GameData/Rivers.json"), WaterCrossingType.RIVER);
+        builder.putAll(deserialize(Paths.get("../GameData/OceanInlets.json"), WaterCrossingType.OCEAN_INLET));
         waterCrossingTable = builder;
     }
 
@@ -44,7 +44,7 @@ public class MilePostLinkFactory {
         TerrainType srcTerrainType = src.getTerrainType();
         TerrainType destTerrainType = dest.getTerrainType();
         Optional<MilePostLink> linkOptional = Optional.absent();
-        MilePostLink.Builder builder = MilePostLink.builder(src, dest);
+        MilePostLink.Builder builder = MilePostLink.builder();
 
         if (srcTerrainType == SEA_POINT && destTerrainType == SEA_POINT) {
             checkForBorderCrossing(src, dest, builder);
@@ -105,16 +105,15 @@ public class MilePostLinkFactory {
             for (HexagonCubeCoordinate farSide : farSideCoordinates) {
                 MilePost src = getMilePost(milePostFactory, nearSide);
                 MilePost dest = getMilePost(milePostFactory, farSide);
-                MilePostLink hereToThere = MilePostLink.builder(src, dest).build().get();
-                MilePostLink thereToHere = MilePostLink.builder(dest, src).build().get();
+                MilePostLink milePostLink = MilePostLink.builder().build().get();
                 switch (edgeAction) {
                     case CREATE:
-                    graph.addEdge(hereToThere, src, dest);
-                    graph.addEdge(thereToHere, dest, src);
+                    graph.addEdge(milePostLink, src, dest);
+                    graph.addEdge(milePostLink, dest, src);
                     break;
                 default:
-                    graph.removeEdge(hereToThere);
-                    graph.removeEdge(thereToHere);
+                    graph.removeEdge(milePostLink);
+                    graph.removeEdge(milePostLink);
                 }
             }
         }
