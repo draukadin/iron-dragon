@@ -4,7 +4,6 @@ import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Sets.newHashSet;
 import static com.pphi.iron.dragon.component.Country.UNDERGROUND;
 
-import javax.swing.Icon;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -40,23 +39,20 @@ public class MilePostFactory {
     private Multimap<HexagonCubeCoordinate, BasicMilePost> basicMilePostMultimap;
     private Multimap<HexagonCubeCoordinate, City> cityMilePosts;
 
-    private IconFactory iconFactory;
-
     public MilePostFactory() throws IOException {
-        iconFactory = new IconFactory();
         mapCoordinates = newHashSet();
         basicMilePostMultimap = ArrayListMultimap.create();
-        buildMilePosts(Paths.get("GameData/AlpineMilePosts.json"), TerrainType.ALPINE);
-        buildMilePosts(Paths.get("GameData/DesertMilePosts.json"), TerrainType.DESERT);
-        buildMilePosts(Paths.get("GameData/ForestMilePosts.json"), TerrainType.FOREST);
-        buildMilePosts(Paths.get("GameData/JungleMilePosts.json"), TerrainType.JUNGLE);
-        buildMilePosts(Paths.get("GameData/MountainMilePosts.json"), TerrainType.MOUNTAIN);
-        buildMilePosts(Paths.get("GameData/OceanMilePosts.json"), TerrainType.SEA_POINT);
-        buildMilePosts(Paths.get("GameData/PlainMilePosts.json"), TerrainType.PLAIN);
-        buildMilePosts(Paths.get("GameData/PortMilePosts.json"), TerrainType.PORT);
-        buildMilePosts(Paths.get("GameData/UnderGroundEntranceMilePosts.json"), TerrainType.UNDERGROUND_ENTRANCE);
-        buildMilePosts(Paths.get("GameData/UnderGroundRockMilePosts.json"), TerrainType.UNDERGROUND_ROCK);
-        buildMilePosts(Paths.get("GameData/VolcanoMilePosts.json"), TerrainType.VOLCANO);
+        buildMilePosts(Paths.get("../GameData/AlpineMilePosts.json"), TerrainType.ALPINE);
+        buildMilePosts(Paths.get("../GameData/DesertMilePosts.json"), TerrainType.DESERT);
+        buildMilePosts(Paths.get("../GameData/ForestMilePosts.json"), TerrainType.FOREST);
+        buildMilePosts(Paths.get("../GameData/JungleMilePosts.json"), TerrainType.JUNGLE);
+        buildMilePosts(Paths.get("../GameData/MountainMilePosts.json"), TerrainType.MOUNTAIN);
+        buildMilePosts(Paths.get("../GameData/OceanMilePosts.json"), TerrainType.SEA_POINT);
+        buildMilePosts(Paths.get("../GameData/PlainMilePosts.json"), TerrainType.PLAIN);
+        buildMilePosts(Paths.get("../GameData/PortMilePosts.json"), TerrainType.PORT);
+        buildMilePosts(Paths.get("../GameData/UnderGroundEntranceMilePosts.json"), TerrainType.UNDERGROUND_ENTRANCE);
+        buildMilePosts(Paths.get("../GameData/UnderGroundRockMilePosts.json"), TerrainType.UNDERGROUND_ROCK);
+        buildMilePosts(Paths.get("../GameData/VolcanoMilePosts.json"), TerrainType.VOLCANO);
         buildCityMilePosts();
     }
 
@@ -154,13 +150,11 @@ public class MilePostFactory {
         }
 
         if (null != terrainType && null != country) {
-            Icon icon = iconFactory.getIcon(terrainType);
             MilePost mainMapMilePost = MilePost
                     .builder(coordinate)
                     .terrainType(terrainType)
                     .milePost(mainMapBasicMilePost)
                     .cityMilePost(mainMapCity)
-                    .icon(icon)
                     .country(country)
                     .build();
             milePosts.add(mainMapMilePost);
@@ -181,14 +175,12 @@ public class MilePostFactory {
         } else {
             terrainType = city.getTerrainType();
         }
-        Icon icon = iconFactory.getIcon(terrainType);
 
         return MilePost
                 .builder(coordinate)
                 .terrainType(terrainType)
                 .milePost(basicMilePost)
                 .cityMilePost(city)
-                .icon(icon)
                 .country(UNDERGROUND)
                 .build();
     }

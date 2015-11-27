@@ -1,7 +1,5 @@
 package com.pphi.iron.dragon.board.model;
 
-import javax.swing.Icon;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -10,7 +8,6 @@ import com.google.common.base.Objects;
 import com.google.common.base.Optional;
 import com.google.common.collect.ComparisonChain;
 import com.pphi.hexagon.coordinates.HexagonCubeCoordinate;
-import com.pphi.iron.dragon.board.factory.IconFactory;
 import com.pphi.iron.dragon.component.BasicMilePost;
 import com.pphi.iron.dragon.component.City;
 import com.pphi.iron.dragon.component.Country;
@@ -24,7 +21,6 @@ public class MilePost implements Comparable<MilePost> {
     private TerrainType terrainType;
     private Country country;
     private int radius;
-    private Icon icon;
 
     @JsonCreator
     public MilePost(@JsonProperty("cubeCoordinate") HexagonCubeCoordinate cubeCoordinate,
@@ -41,8 +37,6 @@ public class MilePost implements Comparable<MilePost> {
         this.terrainType = TerrainType.valueOf(terrainType);
         this.country = Country.valueOf(country);
         this.radius = radius;
-        IconFactory iconFactory = new IconFactory();
-        icon = iconFactory.getIcon(this.terrainType);
     }
 
     private MilePost(Builder builder) {
@@ -52,7 +46,6 @@ public class MilePost implements Comparable<MilePost> {
         country = builder.country;
         terrainType = builder.terrainType;
         radius = builder.radius;
-        icon = builder.icon;
     }
 
     public HexagonCubeCoordinate getCubeCoordinate() {
@@ -78,11 +71,6 @@ public class MilePost implements Comparable<MilePost> {
 
     public int getRadius() {
         return radius;
-    }
-
-    @JsonIgnore
-    public Icon getIcon() {
-        return icon;
     }
 
     @Override
@@ -131,8 +119,7 @@ public class MilePost implements Comparable<MilePost> {
         private Optional<BasicMilePost> milePost = Optional.absent();
         private Country country;
         private TerrainType terrainType;
-        private int radius = 20;
-        private Icon icon;
+        private int radius = 15;
 
         private Builder(HexagonCubeCoordinate cubeCoordinate) {
             this.cubeCoordinate = cubeCoordinate;
@@ -160,11 +147,6 @@ public class MilePost implements Comparable<MilePost> {
 
         public Builder radius(int val) {
             radius = val;
-            return this;
-        }
-
-        public Builder icon(Icon val) {
-            icon = val;
             return this;
         }
 
