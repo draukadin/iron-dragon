@@ -100,8 +100,8 @@ public class Player {
         this.foreman = foreman;
     }
 
-    public void placeTrainOnBoard(HexagonCubeCoordinate location) {
-        Collection<MilePost> milePosts = milePostFactory.createMilePost(location);
+    public void placeTrainOnBoard(HexagonCubeCoordinate location, int size) {
+        Collection<MilePost> milePosts = milePostFactory.createMilePost(location, size);
         if (milePosts.size() != 1) {
             throw new IllegalStateException("That location is not a valid milepost");
         }

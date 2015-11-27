@@ -29,7 +29,7 @@ public class Main {
             long endTime = System.currentTimeMillis();
             System.out.println(String.format("Total time to create map from serialized data: %d", endTime - startTime));
         } else {
-            gameBoard = new GameBoard();
+            gameBoard = new GameBoard(15);
             long endTime = System.currentTimeMillis();
             System.out.println(String.format("Total time to create map from raw data: %d", endTime - startTime));
         }

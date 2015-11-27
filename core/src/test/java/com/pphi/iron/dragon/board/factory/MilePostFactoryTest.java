@@ -60,7 +60,7 @@ public class MilePostFactoryTest {
         Set<HexagonCubeCoordinate> mapCoordinates = milePostFactory.getMapCoordinates();
         Multimap<Integer, MilePost> milePostMap = ArrayListMultimap.create();
         for (HexagonCubeCoordinate cubeCoordinate : mapCoordinates) {
-            milePostMap.putAll(cubeCoordinate.getZ(), milePostFactory.createMilePost(cubeCoordinate));
+            milePostMap.putAll(cubeCoordinate.getZ(), milePostFactory.createMilePost(cubeCoordinate, 15));
         }
         int count = 0;
         for (Map.Entry<Integer, Collection<MilePost>> entry : milePostMap.asMap().entrySet()) {
@@ -114,7 +114,7 @@ public class MilePostFactoryTest {
         Set<HexagonCubeCoordinate> mapCoordinates = milePostFactory.getMapCoordinates();
         Multimap<Integer, MilePost> milePostMap = ArrayListMultimap.create();
         for (HexagonCubeCoordinate cubeCoordinate : mapCoordinates) {
-            milePostMap.putAll(cubeCoordinate.getZ(), milePostFactory.createMilePost(cubeCoordinate));
+            milePostMap.putAll(cubeCoordinate.getZ(), milePostFactory.createMilePost(cubeCoordinate, 15));
         }
         int count = 0;
         Multimap<Integer, MilePost> sideMapMilePosts = HashMultimap.create();
@@ -169,8 +169,8 @@ public class MilePostFactoryTest {
     public void createMilePostTest() throws Exception {
         HexagonCubeCoordinate cubeCoordinate1 = new HexagonCubeCoordinate(-19, -12, 31);
         HexagonCubeCoordinate cubeCoordinate2 = new HexagonCubeCoordinate(4, -23, 19);
-        MilePost milePost1 = milePostFactory.createMilePost(cubeCoordinate1).iterator().next();
-        MilePost milePost2 = milePostFactory.createMilePost(cubeCoordinate2).iterator().next();
+        MilePost milePost1 = milePostFactory.createMilePost(cubeCoordinate1, 15).iterator().next();
+        MilePost milePost2 = milePostFactory.createMilePost(cubeCoordinate2, 15).iterator().next();
 
         assertTrue(milePost1.getMilePost().isPresent());
         assertFalse(milePost1.getCityMilePost().isPresent());
@@ -206,7 +206,7 @@ public class MilePostFactoryTest {
         Multimap<Integer, MilePost> milePostMap = ArrayListMultimap.create();
         Table<Integer, TerrainType, Integer> actualValues = HashBasedTable.create();
         for (HexagonCubeCoordinate cubeCoordinate : mapCoordinates) {
-            milePostMap.putAll(cubeCoordinate.getZ(), milePostFactory.createMilePost(cubeCoordinate));
+            milePostMap.putAll(cubeCoordinate.getZ(), milePostFactory.createMilePost(cubeCoordinate, 15));
         }
         for (Map.Entry<Integer, Collection<MilePost>> entry : milePostMap.asMap().entrySet()) {
             int z = entry.getKey();

@@ -33,7 +33,7 @@ public class MilePostLinkFactoryTest {
 
     @Test(dataProvider = "portCoordinates", dataProviderClass = CoordinateDataProvider.class)
     public void testPortsHaveConnectionToAllNeighbors(HexagonCubeCoordinate portCoordinate) {
-        Collection<MilePost> milePosts = milePostFactory.createMilePost(portCoordinate);
+        Collection<MilePost> milePosts = milePostFactory.createMilePost(portCoordinate, 15);
         MilePost portMilePost = getPortMilePost(milePosts);
         List<MilePost> neighborMilePosts = getMainMapNeighbors(portCoordinate);
         for (MilePost neighborMilePost : neighborMilePosts) {
@@ -43,7 +43,7 @@ public class MilePostLinkFactoryTest {
 
     @Test(dataProvider = "seaPointCoordinates", dataProviderClass = CoordinateDataProvider.class)
     public void testSeaPointsDoNotConnectToNonPortLandPoints(HexagonCubeCoordinate seaPointCoordinate) {
-        Collection<MilePost> milePosts = milePostFactory.createMilePost(seaPointCoordinate);
+        Collection<MilePost> milePosts = milePostFactory.createMilePost(seaPointCoordinate, 15);
         Optional<MilePost> coastalSeaPointMilePost = getCoastalSeaPointMilePost(milePosts);
         if (coastalSeaPointMilePost.isPresent()) {
             MilePost seaPointMilePost = coastalSeaPointMilePost.get();
@@ -58,7 +58,7 @@ public class MilePostLinkFactoryTest {
 
     @Test(dataProvider = "seaPointCoordinates", dataProviderClass = CoordinateDataProvider.class)
     public void testSeaPointsAreAllConnectedToEachOther(HexagonCubeCoordinate seaPointCoordinate) {
-        Collection<MilePost> milePosts = milePostFactory.createMilePost(seaPointCoordinate);
+        Collection<MilePost> milePosts = milePostFactory.createMilePost(seaPointCoordinate, 15);
         MilePost oceanMilePost = filterOutUndergroundMilePosts(milePosts);
         List<MilePost> neighborMilePosts = getOceanNeighbors(seaPointCoordinate);
         for (MilePost neighborMilePost : neighborMilePosts) {
@@ -68,7 +68,7 @@ public class MilePostLinkFactoryTest {
 
     @Test(dataProvider = "landCoordinates", dataProviderClass = CoordinateDataProvider.class)
     public void testLandPointsAreConnectedToEachOther(HexagonCubeCoordinate landCoordinate) {
-        Collection<MilePost> milePosts = milePostFactory.createMilePost(landCoordinate);
+        Collection<MilePost> milePosts = milePostFactory.createMilePost(landCoordinate, 15);
         MilePost undergroundMilePost = null;
         MilePost landMilePost = null;
         for (MilePost milePost : milePosts) {
@@ -90,12 +90,12 @@ public class MilePostLinkFactoryTest {
 
     @Test(dataProvider = "undergroundEntranceCoordinates", dataProviderClass = CoordinateDataProvider.class)
     public void testUndergroundEntrancesOnMainMapConnectToEntranceOnSideMap(HexagonCubeCoordinate coordinate) {
-        Collection<MilePost> milePosts = milePostFactory.createMilePost(coordinate);
+        Collection<MilePost> milePosts = milePostFactory.createMilePost(coordinate, 15);
         MilePost undergroundEntrance = null;
         MilePost mainMapEntrance = null;
         for (MilePost milePost : milePosts) {
         undergroundEntrance = milePostFactory.createMilePost(
-                milePostFactory.shiftXAxisCoordinate(milePost.getCubeCoordinate())).iterator().next();
+                milePostFactory.shiftXAxisCoordinate(milePost.getCubeCoordinate()), 15).iterator().next();
         mainMapEntrance = milePost;
         }
         assertTrue(milePostLinkFactory.createLink(undergroundEntrance, mainMapEntrance).isPresent());
@@ -107,7 +107,7 @@ public class MilePostLinkFactoryTest {
             List<HexagonCubeCoordinate> neighbors = PointyTopCubeNeighbors.getNeighbors(
                     undergroundMilePost.getCubeCoordinate());
             for (HexagonCubeCoordinate neighbor : neighbors) {
-                for (MilePost milePost : milePostFactory.createMilePost(neighbor)) {
+                for (MilePost milePost : milePostFactory.createMilePost(neighbor, 15)) {
                     if (milePost.getTerrainType() != SEA_POINT && milePost.getCountry() == UNDERGROUND) {
                         neighborMilePosts.add(milePost);
                     }
@@ -122,7 +122,7 @@ public class MilePostLinkFactoryTest {
         if (landMilePost != null) {
             List<HexagonCubeCoordinate> neighbors = PointyTopCubeNeighbors.getNeighbors(landMilePost.getCubeCoordinate());
             for (HexagonCubeCoordinate neighbor : neighbors) {
-                for (MilePost milePost : milePostFactory.createMilePost(neighbor)) {
+                for (MilePost milePost : milePostFactory.createMilePost(neighbor, 15)) {
                     if (milePost.getTerrainType() != SEA_POINT && milePost.getCountry() != UNDERGROUND) {
                         neighborMilePosts.add(milePost);
                     }
@@ -173,7 +173,7 @@ public class MilePostLinkFactoryTest {
         List<HexagonCubeCoordinate> neighbors = PointyTopCubeNeighbors.getNeighbors(portCoordinate);
         List<MilePost> neighborMilePosts = newArrayList();
         for (HexagonCubeCoordinate neighbor : neighbors) {
-            for (MilePost milePost : milePostFactory.createMilePost(neighbor)) {
+            for (MilePost milePost : milePostFactory.createMilePost(neighbor,15)) {
                 if (milePost.getCountry() != UNDERGROUND && milePost.getTerrainType() != PORT
                         && milePost.getTerrainType() != CITY_AND_PORT) {
                     neighborMilePosts.add(milePost);
@@ -187,7 +187,7 @@ public class MilePostLinkFactoryTest {
         List<HexagonCubeCoordinate> neighbors = PointyTopCubeNeighbors.getNeighbors(seaPointCoordinate);
         List<MilePost> neighborMilePosts = newArrayList();
         for (HexagonCubeCoordinate neighbor : neighbors) {
-            for (MilePost milePost : milePostFactory.createMilePost(neighbor)) {
+            for (MilePost milePost : milePostFactory.createMilePost(neighbor, 15)) {
                 if (milePost.getTerrainType() == SEA_POINT) {
                     neighborMilePosts.add(milePost);
                 }

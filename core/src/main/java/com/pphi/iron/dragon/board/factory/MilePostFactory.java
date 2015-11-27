@@ -107,7 +107,7 @@ public class MilePostFactory {
         return mapCoordinates.contains(coordinate);
     }
 
-    public Collection<MilePost> createMilePost(HexagonCubeCoordinate coordinate) {
+    public Collection<MilePost> createMilePost(HexagonCubeCoordinate coordinate, int size) {
         List<MilePost> milePosts = newArrayList();
         Collection<BasicMilePost> basicMilePosts = basicMilePostMultimap.get(coordinate);
         Collection<City> cities = cityMilePosts.get(coordinate);
@@ -156,18 +156,19 @@ public class MilePostFactory {
                     .milePost(mainMapBasicMilePost)
                     .cityMilePost(mainMapCity)
                     .country(country)
+                    .radius(size)
                     .build();
             milePosts.add(mainMapMilePost);
 
         }
         if (undergroundMapMilePost != null || (underGroundCity != null)) {
-            milePosts.add(createUndergroundMilePost(coordinate, undergroundMapMilePost, underGroundCity));
+            milePosts.add(createUndergroundMilePost(coordinate, undergroundMapMilePost, underGroundCity, size));
         }
         return milePosts;
     }
 
     private MilePost createUndergroundMilePost(HexagonCubeCoordinate coordinate, BasicMilePost basicMilePost,
-            City city) {
+            City city, int size) {
         TerrainType terrainType;
 
         if (basicMilePost != null && city == null) {
@@ -181,6 +182,7 @@ public class MilePostFactory {
                 .terrainType(terrainType)
                 .milePost(basicMilePost)
                 .cityMilePost(city)
+                .radius(size)
                 .country(UNDERGROUND)
                 .build();
     }

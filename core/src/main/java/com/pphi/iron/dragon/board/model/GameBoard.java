@@ -27,31 +27,31 @@ public class GameBoard {
 
     private Graph<MilePost, MilePostLink> boardGraph;
 
-    public GameBoard() throws IOException {
+    public GameBoard(int size) throws IOException {
         boardGraph = new BoardGraph();
         MilePostFactory milePostFactory = new MilePostFactory();
         MilePostLinkFactory milePostLinkFactory = new MilePostLinkFactory();
         Queue<MilePost> queue = new LinkedList<>();
-        queue.addAll(milePostFactory.createMilePost(MAIN_MAP_SEED));
-        queue.addAll(milePostFactory.createMilePost(SIDE_MAP_SEED));
+        queue.addAll(milePostFactory.createMilePost(MAIN_MAP_SEED, size));
+        queue.addAll(milePostFactory.createMilePost(SIDE_MAP_SEED, size));
         while (!queue.isEmpty()) {
             MilePost current = queue.poll();
             for (HexagonCubeCoordinate neighbor : PointyTopCubeNeighbors.getNeighbors(current.getCubeCoordinate())) {
                 if (milePostFactory.isCoordinateValid(neighbor)) {
-                    Collection<MilePost> mileposts = milePostFactory.createMilePost(neighbor);
+                    Collection<MilePost> mileposts = milePostFactory.createMilePost(neighbor, size);
                     for (MilePost neighborMilePost : mileposts) {
                         if (!boardGraph.containsVertex(neighborMilePost)) {
                             queue.add(neighborMilePost);
                         }
                         addToGraph(current, neighborMilePost, milePostLinkFactory);
                         if (neighborMilePost.getTerrainType().equals(UNDERGROUND_ENTRANCE)) {
-                            addUnderGroundTunnelLink(neighborMilePost, milePostFactory, milePostLinkFactory);
+                            addUnderGroundTunnelLink(neighborMilePost, milePostFactory, milePostLinkFactory, size);
                         }
                     }
                 }
             }
         }
-        createMagicBridge(City.WIKKEDDE, City.OZU_ZARKH, milePostFactory, milePostLinkFactory);
+        createMagicBridge(City.WIKKEDDE, City.OZU_ZARKH, milePostFactory, milePostLinkFactory, size);
         //Takes ~50 seconds to build map from serialized JSON and ~30 seconds to build from raw data so not much point
         //in serializing the game board right now
         //JacksonUtil.serializeToFile(this, COMPRESSED_JSON);
@@ -65,19 +65,19 @@ public class GameBoard {
     }
 
     public void createMagicBridge(City wikkedde, City ozuZarkh, MilePostFactory milePostFactory,
-            MilePostLinkFactory milePostLinkFactory) {
-        milePostLinkFactory.createMagicConnection(boardGraph, wikkedde, ozuZarkh, milePostFactory);
+            MilePostLinkFactory milePostLinkFactory, int size) {
+        milePostLinkFactory.createMagicConnection(boardGraph, wikkedde, ozuZarkh, milePostFactory, size);
     }
 
     private void addUnderGroundTunnelLink(MilePost nearSide, MilePostFactory milePostFactory,
-            MilePostLinkFactory milePostLinkFactory) {
+            MilePostLinkFactory milePostLinkFactory, int size) {
         HexagonCubeCoordinate farSideCoord;
         if (nearSide.getCountry().equals(UNDERGROUND)) {
             farSideCoord = milePostFactory.reverseShiftXAxisCoordinate(nearSide.getCubeCoordinate());
         } else {
             farSideCoord = milePostFactory.shiftXAxisCoordinate(nearSide.getCubeCoordinate());
         }
-        MilePost farSide = milePostFactory.createMilePost(farSideCoord).iterator().next();
+        MilePost farSide = milePostFactory.createMilePost(farSideCoord, size).iterator().next();
         add(nearSide, farSide, milePostLinkFactory);
     }
 

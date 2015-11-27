@@ -69,22 +69,22 @@ public class MilePostLinkFactory {
     }
 
     public void createMagicConnection(Graph<MilePost, MilePostLink> graph, City near, City far,
-            MilePostFactory milePostFactory) {
+            MilePostFactory milePostFactory, int size) {
         if (near.getTerrainType().equals(MAJOR) && far.getTerrainType().equals(MAJOR)) {
             List<HexagonCubeCoordinate> farSideCoordinates = getHexagonCubeCoordinates(near);
             List<HexagonCubeCoordinate> nearSideCoordinates = getHexagonCubeCoordinates(far);
-            modifyGraph(graph, milePostFactory, farSideCoordinates, nearSideCoordinates, EdgeAction.CREATE);
+            modifyGraph(graph, milePostFactory, farSideCoordinates, nearSideCoordinates, EdgeAction.CREATE, size);
         } else {
             //TODO Logging statement
         }
     }
 
     public void destroyMagicConnection(Graph<MilePost, MilePostLink> graph, City near, City far,
-            MilePostFactory milePostFactory) {
+            MilePostFactory milePostFactory, int size) {
         if (near.getTerrainType().equals(MAJOR) && far.getTerrainType().equals(MAJOR)) {
             List<HexagonCubeCoordinate> farSideCoordinates = getHexagonCubeCoordinates(near);
             List<HexagonCubeCoordinate> nearSideCoordinates = getHexagonCubeCoordinates(far);
-            modifyGraph(graph, milePostFactory, farSideCoordinates, nearSideCoordinates, EdgeAction.DESTROY);
+            modifyGraph(graph, milePostFactory, farSideCoordinates, nearSideCoordinates, EdgeAction.DESTROY, size);
         } else {
             //TODO Logging statement
         }
@@ -100,27 +100,28 @@ public class MilePostLinkFactory {
 
     private void modifyGraph(Graph<MilePost, MilePostLink> graph, MilePostFactory milePostFactory,
             List<HexagonCubeCoordinate> farSideCoordinates, List<HexagonCubeCoordinate> nearSideCoordinates,
-            EdgeAction edgeAction) {
+            EdgeAction edgeAction, int size) {
         for (HexagonCubeCoordinate nearSide : nearSideCoordinates) {
             for (HexagonCubeCoordinate farSide : farSideCoordinates) {
-                MilePost src = getMilePost(milePostFactory, nearSide);
-                MilePost dest = getMilePost(milePostFactory, farSide);
-                MilePostLink milePostLink = MilePostLink.builder().build().get();
+                MilePost src = getMilePost(milePostFactory, nearSide, size);
+                MilePost dest = getMilePost(milePostFactory, farSide, size);
+                MilePostLink thereToHere = MilePostLink.builder().build().get();
+                MilePostLink hereToThere = MilePostLink.builder().build().get();
                 switch (edgeAction) {
                     case CREATE:
-                    graph.addEdge(milePostLink, src, dest);
-                    graph.addEdge(milePostLink, dest, src);
+                    graph.addEdge(thereToHere, src, dest);
+                    graph.addEdge(hereToThere, dest, src);
                     break;
                 default:
-                    graph.removeEdge(milePostLink);
-                    graph.removeEdge(milePostLink);
+                    graph.removeEdge(thereToHere);
+                    graph.removeEdge(hereToThere);
                 }
             }
         }
     }
 
-    private MilePost getMilePost(MilePostFactory milePostFactory, HexagonCubeCoordinate coordinate) {
-        Collection<MilePost> mileposts = milePostFactory.createMilePost(coordinate);
+    private MilePost getMilePost(MilePostFactory milePostFactory, HexagonCubeCoordinate coordinate, int size) {
+        Collection<MilePost> mileposts = milePostFactory.createMilePost(coordinate, size);
         if (mileposts.size() == 1) {
             return mileposts.iterator().next();
         }
